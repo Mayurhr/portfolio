@@ -710,7 +710,7 @@ article.active {
     margin: auto;
   }
 
-  /*NAVBAR*/
+  /*NAVBAR comes in About*/
   .navbar {
     position: absolute;
     bottom: auto;
@@ -718,7 +718,7 @@ article.active {
     left: auto;
     right: 0;
     width: max-content;
-    border-radius: 0 20px;
+    border-radius: 0 300px;
     padding: 0 20px;
     box-shadow: none;
   }
@@ -926,6 +926,7 @@ article.active {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 }
+
 </style>
 <head>
 
@@ -947,7 +948,7 @@ article.active {
 
 
                 <div class="info-content">
-                    <h1 class="name" title="Richard hanrick">Mayur H R</h1>
+                    <h1 class="name" title="user name">Mayur H R</h1>
 
                     <p class="title">Student</p>
                 </div>
@@ -975,22 +976,26 @@ article.active {
       -->
             <nav class="navbar">
 
-                <ul class="navbar-list">
+                <ul class="navbar-list"> 
 
                     <li class="navbar-item">
-                        <button class="navbar-link  active" data-nav-link>About</button>
+                        <a href="#about" class="navbar-link">About</a>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Resume</button>
+                        <a href="#resume" class="navbar-link">Resume</a>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Skills</button>
+                        <a href="#skills" class="navbar-link">Skills</a>
                     </li>
 
                     <li class="navbar-item">
-                        <button class="navbar-link" data-nav-link>Projects</button>
+                        <a href="#projects" class="navbar-link">Projects</a>
+                    </li>
+                    
+                    <li class="navbar-item">
+                        <a href="#contact" class="navbar-link">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -998,12 +1003,10 @@ article.active {
         - #ABOUT
       -->
             <article class="about active" data-page="about">
-
+                <section id="about" class="about-text">
                 <header>
                     <h2 class="h2 article-title">About me</h2>
                 </header>
-
-                <section id="about" class="about-text">
                     <p>
                         I'm a Web Developer from Honnali, Davanagere, passionate about creating
                         functional and user-friendly websites. I enjoy turning ideas into reality
@@ -1020,7 +1023,7 @@ article.active {
             <!--
         - #RESUME
       -->
-            <article class="resume active" data-page="resume">
+            <section id="resume" aria-label="Resume"></section>
                 <header>
                     <h2 class="h2 article-title">Resume</h2>
                 </header>
@@ -1048,23 +1051,16 @@ article.active {
                                 • Specializing in <strong>Python & Web Development</strong><br>
                                 • Participant in <strong>hackathons</strong> and seminars
                             </p>
-
                         </li>
-
                         <li class="timeline-item">
-
                             <h4 class="h4 timeline-item-title">Sri Vijaya PU college,Honnali</h4>
-
                             <span>2021 - 2023</span>
-
                             <p class="timeline-text">
                                 <strong>Pre-University College (PCMB)</strong> completed with distinction<br>
                                 • Scored <strong>88%</strong> in final examinations<br>
                                 • Won <strong>1st prize</strong> in Science Exhibition<br>
                             </p>
-
                         </li>
-
                         <li class="timeline-item">
 
                             <h4 class="h4 timeline-item-title">S.V.M.E.School,Honnali</h4>
@@ -1076,19 +1072,14 @@ article.active {
                                 • Awarded <strong>Best Student</strong> in 2019<br>
                                 • Organized annual <strong>cultural fest</strong>
                             </p>
-
                         </li>
-
                     </ol>
-
                 </section>
-            </article>
-            <article class="Skills active" data-page="Skills">
+            </section>
+                <section id="skills" aria-label="Skills">
                 <header>
                     <h2 class="h2 article-title">Skills</h2>
                 </header>
-
-                <section id="skills" aria-label="Skills">
                     <div class="skills-list" aria-label="List of UI/UX skills">
                         <span class="skill">C</span>
                         <span class="skill">C++</span>
@@ -1101,10 +1092,8 @@ article.active {
                         <span class="skill">Basic Backend Logic</span>
                     </div>
                 </section>
-            </article>
 
-            <article class="portfolio active" data-page="portfolio">
-
+                <section id="projects" aria-label="Projects"></section>
                 <header>
                     <h2 class="h2 article-title">Web development</h2>
                 </header>
@@ -1136,9 +1125,9 @@ article.active {
                         </a>
                     </li>
                     </section>
-            </article> <br><br>
+              <br>
 
-
+                    <section id="contact" class="contact-text"></section>
             <header>
                 <h2 class="h2 article-title">Contacts</h2>
             </header>
@@ -1201,11 +1190,12 @@ article.active {
                     </div>
                 </div>
             </div>
-            </article>
+          </section>
         </div>
     </main>
     <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
