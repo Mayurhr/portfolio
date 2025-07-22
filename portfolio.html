@@ -1233,6 +1233,22 @@
           <header>
             <h2 class="h2 article-title">Certificates</h2>
           </header>
+          <input type="text" id="searchInput" placeholder="Search certificates..." />
+                    <div class="filters">
+                        <select id="yearFilter">
+                            <option value="">All Years</option>
+                        </select>
+                        <select id="issuerFilter">
+                            <option value="">All Institutes</option>
+                        </select>
+                        <select id="sortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                    <div id="certificatesGrid" class="grid"></div>
+                    <div id="pagination" class="pagination"></div>
+                    </div>
           
         </article>
       </section>
@@ -1344,5 +1360,4 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
