@@ -24,5 +24,7 @@ Welcome to my personal **Portfolio Website** built using **HTML, CSS**, and **Ja
 - Unsplash (for placeholder images)
 
 ---
+NOTE: "Open in live server"
 
+---
 ⭐ Thank you for visiting my portfolio!
