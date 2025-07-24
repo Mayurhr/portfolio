@@ -20,14 +20,43 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("sortFilter").addEventListener("change", applyFilters);
   document.getElementById("searchInput").addEventListener("input", applyFilters);
 
-  const closeModalBtn = document.getElementById("closeModal");
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", () => {
-      document.getElementById("modal").classList.add("hidden");
-      document.getElementById("pdfViewer").src = "";
-    });
-  }
+  document.getElementById("clearFilters").addEventListener("click", () => {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("yearFilter").value = "";
+    document.getElementById("issuerFilter").value = "";
+    document.getElementById("sortFilter").value = "newest";
+    applyFilters();
+  });
+
+  // Modal button actions
+  const modal = document.getElementById("modal");
+
+  document.getElementById("closeModal").addEventListener("click", () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("modal-maximized", "modal-minimized");
+  });
+
+  document.getElementById("minimizeModal").addEventListener("click", () => {
+    modal.classList.remove("modal-maximized");
+    modal.classList.add("modal-minimized");
+  });
+
+  document.getElementById("maximizeModal").addEventListener("click", () => {
+    modal.classList.remove("modal-minimized");
+    modal.classList.add("modal-maximized");
+  });
+
+
 });
+
+
+const closeModalBtn = document.getElementById("closeModal");
+if (closeModalBtn) {
+  closeModalBtn.addEventListener("click", () => {
+    document.getElementById("modal").classList.add("hidden");
+    document.getElementById("pdfViewer").src = "";
+  });
+}
 
 function populateFilters() {
   const yearSet = new Set();
@@ -90,44 +119,38 @@ function renderCertificates() {
   const grid = document.getElementById("certificateContainer");
   grid.innerHTML = "";
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const pageCertificates = filteredCertificates.slice(startIndex, startIndex + itemsPerPage);
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const currentCertificates = filteredCertificates.slice(start, end);
 
-  if (pageCertificates.length === 0) {
-    grid.innerHTML = "<p>No certificates found.</p>";
-    return;
-  }
-
-  pageCertificates.forEach(cert => {
+  currentCertificates.forEach(cert => {
     const card = document.createElement("div");
     card.className = "certificate-card";
 
     const img = document.createElement("img");
+    img.src = cert.file;
     img.className = "certificate-thumb";
-    img.src = "assest/2.png"; 
-    img.alt = "Certificate thumbnail";
 
-    const title = document.createElement("p");
+    img.addEventListener("click", () => {
+      document.getElementById("imageViewer").src = cert.file;
+      document.getElementById("modal").classList.remove("hidden");
+    });
+
+    const title = document.createElement("div");
     title.className = "certificate-title";
     title.textContent = cert.title;
 
-    const issuer = document.createElement("p");
+    const issuer = document.createElement("div");
     issuer.className = "certificate-issuer";
-    issuer.textContent = `${cert.issuer} (${cert.year})`;
+    issuer.textContent = cert.issuer;
 
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(issuer);
 
-    card.addEventListener("click", () => {
-      document.getElementById("pdfViewer").src = cert.file;
-      document.getElementById("modal").classList.remove("hidden");
-    });
-
     grid.appendChild(card);
   });
 }
-
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
