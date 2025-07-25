@@ -1299,6 +1299,41 @@
         /* soft neon blue */
         text-shadow: 0 0 4px #00ccff;
     }
+
+     /*Page navigation*/
+
+    .pagination {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin: 1rem 1rem 2rem 0;
+        flex-wrap: wrap;
+    }
+
+    /* Page Buttons */
+    .pagination button {
+        background-color: #222;
+        color: #ccc;
+        border: 1px solid #444;
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Hover Effect */
+    .pagination button:hover {
+        background-color: #444;
+        color: #fff;
+    }
+
+    /* Active Page Style */
+    .pagination button.active {
+        background-color: #00ccff;
+        color: #000;
+        font-weight: bold;
+        border: 1px solid #00ccff;
+    }
 </style>
 
 <head>
@@ -1487,7 +1522,7 @@
 
                     <div id="certificateContainer" class="certificate-grid"></div>
 
-                    <div id="pagination"></div>
+                    <div id="pagination" class="pagination"></div>
 
                     <!-- Modal for certificate viewer -->
                     <div id="modal" class="modal hidden">
