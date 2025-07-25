@@ -1,26 +1,189 @@
 [
+   {
+    "title": "Getting started with MongoDB Atlas",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/1.jpg"
+  },
+  {
+    "title": "MongoDB and the Document Model",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/2.jpg"
+  },
+  {
+    "title": "Connecting to a MongoDB Database",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/3.jpg"
+  },
+  {
+    "title": "MongoDB CURD operations:insert and Find Documents",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/4.jpg"
+  },
+  {
+    "title": "MongoDB CURD operations:Replace and Delete Documents",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/5.jpg"
+  },
+  {
+    "title": "MongoDB CURD operations:Modifying Query Results",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/6.jpg"
+  },
+  {
+    "title": "MongoDB Aggregation",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/7.jpg"
+  },
+  {
+    "title": "MongoDB indexes",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/8.jpg"
+  },
+  {
+    "title": "MongoDB Atlas Search",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/9.jpg"
+  },
+  {
+    "title": "MongoDB Data Modeling Intro",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/10.jpg"
+  },
+  {
+    "title": "MongoDB Transactions",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/11.jpg"
+  },
+  {
+    "title": "MongoDB Aggregation in Python",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/12.jpg"
+  },
+  {
+    "title": "Connecting to MongoDB in C#",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/13.jpg"
+  },
+  {
+    "title": "Calculating Percentiles from array entries(Lab Only)",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "file": "certificates/14.jpg"
+  },
+  {
+    "title": "Business Analysis & Process Management",
+    "issuer": "Coursera",
+    "year": "2024",
+    "file": "certificates/15.jpg"
+  },
+  {
+    "title": "Build a free website with WordPress",
+    "issuer": "Coursera",
+    "year": "2024",
+    "file": "certificates/16.jpg"
+  },
+  {
+    "title": "National space day Quize",
+    "issuer": "National water academy central water commission",
+    "year": "2024",
+    "file": "certificates/17.jpg"
+  },
+  {
+    "title": "AI for beginners",
+    "issuer": "hp life",
+    "year": "2024",
+    "file": "certificates/18.jpg"
+  },
   {
     "title": "MongoDB Developer Path",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/19-CERTIFICATE.pdf"
+    "file": "certificates/19.jpg"
+  },
+  {
+    "title": "Data Science & Analytics",
+    "issuer": "hp life",
+    "year": "2024",
+    "file": "certificates/20.jpg"
   },
   {
     "title": "Quiz Game with HTML & CSS",
     "issuer": "SkillEcted",
     "year": "2023",
-    "file": "certificates/21-CERTIFICATE.pdf"
+    "file": "certificates/21.jpg"
+    
   },
   {
     "title": " Knowledge Knockout ",
     "issuer": "PES INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
     "year": "2024",
-    "file": "certificates/22-CERTIFICATE.pdf"
+    "file": "certificates/22.jpg"
+  },
+  {
+    "title": "CYBER CADET",
+    "issuer": "ISEA",
+    "year": "2025",
+    "file": "certificates/23.jpg"
   },
   {
     "title": "Data Analysis with Python",
     "issuer": "MachineLearning.org.in",
     "year": "2025",
-    "file": "certificates/24-CERTIFICATE.pdf"
+    "file": "certificates/24.jpg"
+  },
+ {
+    "title": "HTML and CSS for Web Designers: From Basics to Beautiful",
+    "issuer": "udemy",
+    "year": "2025",
+    "file": "certificates/25.jpg"
+  },
+  {
+    "title": "Master Python & Generative Al for Advanced Analytics",
+    "issuer": "udemy",
+    "year": "2025",
+    "file": "certificates/26.jpg"
+  },
+  {
+    "title": "FOOD-PLANT-HEALTH webinar",
+    "issuer": "Vegan outreach",
+    "year": "2025",
+    "file": "certificates/27.jpg"
+  },
+  {
+    "title": "Online Quiz on the Occasion of Dr. B. R. Ambedkar's Birth Anniversary",
+    "issuer": "Certify'em",
+    "year": "2025",
+    "file": "certificates/28.jpg"
+  },
+  {
+    "title": "Python And Flask Framework Complete Course",
+    "issuer": "udemy",
+    "year": "2025",
+    "file": "certificates/29.jpg"
+  },
+  {
+    "title": "AI for students",
+    "issuer": "Nxt wave",
+    "year": "2025",
+    "file": "certificates/30.jpeg"
+  },
+  {
+    "title": "The Complete C++ programming course from basic to expert",
+    "issuer": "udemy",
+    "year": "2025",
+    "file": "certificates/31.jpeg"
   }
 ]
