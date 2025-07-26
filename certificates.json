@@ -185,5 +185,11 @@
     "issuer": "udemy",
     "year": "2025",
     "file": "certificates/31.jpeg"
-  }
+  },
+   {
+   "title": "Introduction to Generative AI Studio",
+    "issuer": "simplilearn",
+    "year": "2025",
+    "file": "certificates/32.jpg"
+   } 
 ]
