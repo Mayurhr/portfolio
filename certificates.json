@@ -187,15 +187,21 @@
     "file": "certificates/31.jpeg"
   },
    {
-   "title": "Introduction to Generative AI Studio",
+    "title": "Introduction to Generative AI Studio",
     "issuer": "simplilearn",
     "year": "2025",
     "file": "certificates/32.jpg"
    },
    {
-   "title": "HACKTECH FUSION 3.0",
+    "title": "HACKTECH FUSION 3.0",
     "issuer": "Bapuji Institute of Engineering and Technolog",
     "year": "2025",
     "file": "certificates/33.jpeg"
+   },
+   {
+    "title": "GenAI Powered Data Analytics Job Simulation",
+    "issuer": "TATA",
+    "year": "2025",
+    "file": "certificates/34.jpeg"
    }
 ]
