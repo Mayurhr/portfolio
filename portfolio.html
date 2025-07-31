@@ -1072,155 +1072,211 @@
     /* Global Styles */
     body {
         margin: 0;
-        font-family: sans-serif;
-        background-color: #111;
-        color: #eee;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #0d0d0d;
+        color: #f0f0f0;
     }
 
     .container {
         padding: 20px;
+        max-width: 1200px;
+        margin: auto;
     }
 
-    /* Inputs & Filters */
+    /* Filters and Inputs */
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
     input,
     select {
-        padding: 8px;
-        margin: 5px;
-        background: #222;
+        padding: 10px 15px;
+        background-color: #1c1c1c;
         color: #fff;
-        border: 1px solid #555;
+        border: 1px solid #333;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
     }
 
-    /* Grid Layout */
+    input:focus,
+    select:focus {
+        border-color: #00ccff;
+    }
+
+    /* Search Bar */
+    #searchInput {
+        flex: 1;
+        min-width: 200px;
+        background-color: #1a1a1a;
+        border: 2px solid #00ccff;
+    }
+
+    /* Clear Filters Button */
+    #clearFilters {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: 2px solid #00ccff;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    #clearFilters:hover {
+        background-color: #00ccff;
+        color: #000;
+    }
+
+    /* Certificate Grid */
     .certificate-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
+        gap: 18px;
+        padding: 10px 0;
     }
 
     /* Certificate Card */
     .certificate-card {
-        background: #1e1e1e;
+        background-color: #1b1b1b;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 204, 255, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
         cursor: pointer;
-        transition: transform 0.2s ease;
+        overflow: hidden;
     }
 
     .certificate-card:hover {
         transform: scale(1.03);
+        box-shadow: 0 0 12px rgba(0, 204, 255, 0.3);
     }
 
-    /* Thumbnail */
+    /* Thumbnail Image */
     .certificate-thumb {
         width: 100%;
-        height: 200px;
+        height: 160px;
         object-fit: cover;
-        background: #333;
-        border-radius: 5px;
+        border-radius: 8px;
+        background-color: #333;
     }
 
     /* Certificate Text */
-    .certificate-title,
-    .certificate-issuer {
-        color: #fff;
+    .certificate-title {
+        margin: 8px 0 2px;
+        font-weight: bold;
         text-align: center;
-        margin: 5px 0;
+        font-size: 15px;
+    }
+
+    .certificate-issuer {
+        text-align: center;
+        font-size: 12px;
+        color: #aaa;
+        font-style: italic;
+        transition: color 0.3s ease;
+    }
+
+    .certificate-card:hover .certificate-issuer {
+        color: #00ccff;
     }
 
     /* Pagination */
     .pagination {
-        text-align: center;
+        display: flex;
+        justify-content: center;
         margin: 20px 0 30px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .pagination button {
-        background-color: #333;
-        color: #fff;
-        border: 1px solid #555;
-        padding: 8px 12px;
-        margin: 0 5px;
-        border-radius: 5px;
+        background-color: #222;
+        color: #ccc;
+        border: 1px solid #444;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 14px;
         cursor: pointer;
-        transition: background 0.3s;
+        transition: 0.3s;
     }
 
     .pagination button:hover {
-        background-color: #555;
+        background-color: #444;
+        color: #fff;
     }
 
     .pagination button.active {
-        background-color: #0f0;
+        background-color: #00ccff;
         color: #000;
         font-weight: bold;
+        border: 1px solid #00ccff;
     }
 
-    /* Modal */
+    /* Modal Viewer */
     .modal {
         position: fixed;
         top: 10%;
         left: 10%;
         width: 80vw;
         height: 80vh;
-        background: #111;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-        z-index: 9999;
+        background-color: #111;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
         display: flex;
         flex-direction: column;
+        z-index: 999;
     }
 
     .modal.hidden {
         display: none;
     }
 
-    /* Modal header controls */
     .modal-header {
-        position: absolute;
-        top: 10px;
-        right: 15px;
         display: flex;
-        gap: 5px;
-        z-index: 10;
+        justify-content: flex-end;
+        padding: 10px;
+        gap: 10px;
     }
 
     .modal-header button {
-        background: #444;
+        background-color: #333;
         color: white;
         border: none;
-        padding: 5px 10px;
-        font-size: 16px;
-        border-radius: 4px;
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 6px;
         cursor: pointer;
-        transition: background 0.3s;
+        transition: 0.3s;
     }
 
     .modal-header button:hover {
-        background-color: #666;
+        background-color: #555;
     }
 
-    /* Modal Content */
     .modal-content {
         flex: 1;
         display: flex;
-        align-items: center;
         justify-content: center;
-        padding: 40px 10px 10px;
-        /* space for top buttons */
+        align-items: center;
+        padding: 30px;
         overflow: auto;
     }
 
     .modal-content img {
         max-width: 95%;
-        max-height: 85vh;
-        object-fit: contain;
+        max-height: 85%;
         border-radius: 10px;
         border: 1px solid #555;
+        object-fit: contain;
     }
 
-    /* Maximize View */
     .modal.modal-maximized {
         top: 0;
         left: 0;
@@ -1229,7 +1285,6 @@
         border-radius: 0;
     }
 
-    /* Minimize View */
     .modal.modal-minimized {
         top: 15%;
         left: 15%;
@@ -1238,101 +1293,25 @@
         border-radius: 10px;
     }
 
-    /* Style the search bar */
-    #searchInput {
-        padding: 10px 15px;
-        border: 2px solid #00bfff;
-        border-radius: 25px;
-        background-color: #1b1b1b;
-        color: #fff;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-        margin-bottom: 15px;
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+        .certificate-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .certificate-thumb {
+            height: 140px;
+        }
     }
 
-    /* Style filter dropdowns */
-    select {
-        padding: 10px 15px;
+    @media screen and (max-width: 480px) {
+        .certificate-grid {
+            grid-template-columns: 1fr;
+        }
 
-        border-radius: 25px;
-        background-color: #1b1b1b;
-        color: #fff;
-        font-size: 16px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-
-    /* Ensure filter area has spacing */
-    #filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    #clearFilters {
-        padding: 10px 20px;
-        background-color: #444;
-        color: #fff;
-        border: 2px solid #00bfff;
-        border-radius: 25px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.2s ease;
-    }
-
-    #clearFilters:hover {
-        background-color: #00bfff;
-        color: #000;
-    }
-
-    .certificate-issuer {
-        font-size: 0.875rem;
-        color: #aaa;
-        font-style: italic;
-        margin-top: 0.2rem;
-        transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    .certificate-card:hover .certificate-issuer {
-        color: #00ccff;
-        text-shadow: 0 0 4px #00ccff;
-    }
-
-    /*Page navigation*/
-
-    .pagination {
-        display: flex;
-        justify-content: flex-end;
-        gap: 0.5rem;
-        margin: 1rem 1rem 2rem 0;
-        flex-wrap: wrap;
-    }
-
-    /* Page Buttons */
-    .pagination button {
-        background-color: #222;
-        color: #ccc;
-        border: 1px solid #444;
-        padding: 6px 12px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Hover Effect */
-    .pagination button:hover {
-        background-color: #444;
-        color: #fff;
-    }
-
-    /* Active Page Style */
-    .pagination button.active {
-        background-color: #00ccff;
-        color: #000;
-        font-weight: bold;
-        border: 1px solid #00ccff;
+        .certificate-thumb {
+            height: 120px;
+        }
     }
 
     /*certificate highligh*/
