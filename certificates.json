@@ -1,207 +1,274 @@
 [
-   {
+  {
     "title": "Getting started with MongoDB Atlas",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/1.jpg"
+    "file": "certificates/1.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB and the Document Model",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/2.jpg"
+    "file": "certificates/2.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "Connecting to a MongoDB Database",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/3.jpg"
+    "file": "certificates/3.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB CURD operations:insert and Find Documents",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/4.jpg"
+    "file": "certificates/4.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB CURD operations:Replace and Delete Documents",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/5.jpg"
+    "file": "certificates/5.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB CURD operations:Modifying Query Results",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/6.jpg"
+    "file": "certificates/6.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB Aggregation",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/7.jpg"
+    "file": "certificates/7.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB indexes",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/8.jpg"
+    "file": "certificates/8.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB Atlas Search",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/9.jpg"
+    "file": "certificates/9.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB Data Modeling Intro",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/10.jpg"
+    "file": "certificates/10.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB Transactions",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/11.jpg"
+    "file": "certificates/11.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "MongoDB Aggregation in Python",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/12.jpg"
+    "file": "certificates/12.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "Connecting to MongoDB in C#",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/13.jpg"
+    "file": "certificates/13.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
-    "title": "Calculating Percentiles from array entries(Lab Only)",
+    "title": "Calculating Percentiles from array entries (Lab Only)",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/14.jpg"
+    "file": "certificates/14.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "Business Analysis & Process Management",
     "issuer": "Coursera",
     "year": "2024",
-    "file": "certificates/15.jpg"
+    "file": "certificates/15.jpg",
+    "category": "Business",
+    "highlight": false
   },
   {
     "title": "Build a free website with WordPress",
     "issuer": "Coursera",
     "year": "2024",
-    "file": "certificates/16.jpg"
+    "file": "certificates/16.jpg",
+    "category": "Web Development",
+    "highlight": false
   },
   {
-    "title": "National space day Quize",
-    "issuer": "National water academy central water commission",
+    "title": "National space day Quiz",
+    "issuer": "National Water Academy, Central Water Commission",
     "year": "2024",
-    "file": "certificates/17.jpg"
+    "file": "certificates/17.jpg",
+    "category": "Quiz",
+    "highlight": false
   },
   {
     "title": "AI for beginners",
-    "issuer": "hp life",
+    "issuer": "HP Life",
     "year": "2024",
-    "file": "certificates/18.jpg"
+    "file": "certificates/18.jpg",
+    "category": "AI/ML",
+    "highlight": false
   },
   {
     "title": "MongoDB Developer Path",
     "issuer": "MongoDB",
     "year": "2024",
-    "file": "certificates/19.jpg"
+    "file": "certificates/19.jpg",
+    "category": "MongoDB",
+    "highlight": false
   },
   {
     "title": "Data Science & Analytics",
-    "issuer": "hp life",
+    "issuer": "HP Life",
     "year": "2024",
-    "file": "certificates/20.jpg"
+    "file": "certificates/20.jpg",
+    "category": "AI/ML",
+    "highlight": false
   },
   {
     "title": "Quiz Game with HTML & CSS",
     "issuer": "SkillEcted",
     "year": "2023",
-    "file": "certificates/21.jpg"
-    
+    "file": "certificates/21.jpg",
+    "category": "Quiz",
+    "highlight": false
   },
   {
-    "title": " Knowledge Knockout ",
+    "title": "Knowledge Knockout",
     "issuer": "PES INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
     "year": "2024",
-    "file": "certificates/22.jpg"
+    "file": "certificates/22.jpg",
+    "category": "Quiz",
+    "highlight": true
   },
   {
     "title": "CYBER CADET",
     "issuer": "ISEA",
     "year": "2025",
-    "file": "certificates/23.jpg"
+    "file": "certificates/23.jpg",
+    "category": "Cyber Security",
+    "highlight": true
   },
   {
     "title": "Data Analysis with Python",
     "issuer": "MachineLearning.org.in",
     "year": "2025",
-    "file": "certificates/24.jpg"
-  },
- {
-    "title": "HTML and CSS for Web Designers: From Basics to Beautiful",
-    "issuer": "udemy",
-    "year": "2025",
-    "file": "certificates/25.jpg"
+    "file": "certificates/24.jpg",
+    "category": "AI/ML",
+    "highlight": false
   },
   {
-    "title": "Master Python & Generative Al for Advanced Analytics",
-    "issuer": "udemy",
+    "title": "HTML and CSS for Web Designers",
+    "issuer": "Udemy",
     "year": "2025",
-    "file": "certificates/26.jpg"
+    "file": "certificates/25.jpg",
+    "category": "Web Development",
+    "highlight": false
+  },
+  {
+    "title": "Master Python & Generative AI",
+    "issuer": "Udemy",
+    "year": "2025",
+    "file": "certificates/26.jpg",
+    "category": "AI/ML",
+    "highlight": false
   },
   {
     "title": "FOOD-PLANT-HEALTH webinar",
-    "issuer": "Vegan outreach",
+    "issuer": "Vegan Outreach",
     "year": "2025",
-    "file": "certificates/27.jpg"
+    "file": "certificates/27.jpg",
+    "category": "Awareness / Misc",
+    "highlight": false
   },
   {
-    "title": "Online Quiz on the Occasion of Dr. B. R. Ambedkar's Birth Anniversary",
+    "title": "Quiz on Dr. B. R. Ambedkar's Birth Anniversary",
     "issuer": "Certify'em",
     "year": "2025",
-    "file": "certificates/28.jpg"
+    "file": "certificates/28.jpg",
+    "category": "Quiz",
+    "highlight": false
   },
   {
-    "title": "Python And Flask Framework Complete Course",
-    "issuer": "udemy",
+    "title": "Python and Flask Framework",
+    "issuer": "Udemy",
     "year": "2025",
-    "file": "certificates/29.jpg"
+    "file": "certificates/29.jpg",
+    "category": "Web Development",
+    "highlight": false
   },
   {
     "title": "AI for students",
-    "issuer": "Nxt wave",
+    "issuer": "Nxt Wave",
     "year": "2025",
-    "file": "certificates/30.jpeg"
+    "file": "certificates/30.jpeg",
+    "category": "AI/ML",
+    "highlight": false
   },
   {
-    "title": "The Complete C++ programming course from basic to expert",
-    "issuer": "udemy",
+    "title": "The Complete C++ Programming Course",
+    "issuer": "Udemy",
     "year": "2025",
-    "file": "certificates/31.jpeg"
+    "file": "certificates/31.jpeg",
+    "category": "Programming",
+    "highlight": false
   },
-   {
-    "title": "Introduction to Generative AI Studio",
-    "issuer": "simplilearn",
+  {
+    "title": "Intro to Generative AI Studio",
+    "issuer": "Simplilearn",
     "year": "2025",
-    "file": "certificates/32.jpg"
-   },
-   {
+    "file": "certificates/32.jpg",
+    "category": "AI/ML",
+    "highlight": false
+  },
+  {
     "title": "HACKTECH FUSION 3.0",
-    "issuer": "Bapuji Institute of Engineering and Technolog",
+    "issuer": "Bapuji Institute of Engineering and Technology",
     "year": "2025",
-    "file": "certificates/33.jpeg"
-   },
-   {
+    "file": "certificates/33.jpeg",
+    "category": "Hackathon",
+    "highlight": true
+  },
+  {
     "title": "GenAI Powered Data Analytics Job Simulation",
     "issuer": "TATA",
     "year": "2025",
-    "file": "certificates/34.jpg"
-   }
+    "file": "certificates/34.jpg",
+    "category": "AI/ML",
+    "highlight": false
+  }
 ]
