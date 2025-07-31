@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("yearFilter").addEventListener("change", applyFilters);
   document.getElementById("issuerFilter").addEventListener("change", applyFilters);
+  document.getElementById("categoryFilter").addEventListener("change", applyFilters);
   document.getElementById("sortFilter").addEventListener("change", applyFilters);
   document.getElementById("searchInput").addEventListener("input", applyFilters);
 
@@ -24,13 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchInput").value = "";
     document.getElementById("yearFilter").value = "";
     document.getElementById("issuerFilter").value = "";
+    document.getElementById("categoryFilter").value = "";
     document.getElementById("sortFilter").value = "newest";
     applyFilters();
   });
 
-  // Modal button actions
   const modal = document.getElementById("modal");
-
   document.getElementById("closeModal").addEventListener("click", () => {
     modal.classList.add("hidden");
     modal.classList.remove("modal-maximized", "modal-minimized");
@@ -45,63 +45,86 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("modal-minimized");
     modal.classList.add("modal-maximized");
   });
-
-
 });
 
-
-const closeModalBtn = document.getElementById("closeModal");
-if (closeModalBtn) {
-  closeModalBtn.addEventListener("click", () => {
-    document.getElementById("modal").classList.add("hidden");
-    document.getElementById("pdfViewer").src = "";
-  });
+function populateFilters() {
+  updateDependentFilters();
 }
 
-function populateFilters() {
+function updateDependentFilters() {
+  const selectedYear = document.getElementById("yearFilter").value;
+  const selectedIssuer = document.getElementById("issuerFilter").value;
+  const selectedCategory = document.getElementById("categoryFilter").value;
+
+  const filtered = allCertificates.filter(cert => {
+    const matchYear = !selectedYear || (cert.year && cert.year.toString() === selectedYear);
+    const matchIssuer = !selectedIssuer || (cert.issuer && cert.issuer.toLowerCase() === selectedIssuer.toLowerCase());
+    const matchCategory = !selectedCategory || (cert.category && cert.category.toLowerCase() === selectedCategory.toLowerCase());
+    return matchYear && matchIssuer && matchCategory;
+  });
+
   const yearSet = new Set();
   const issuerSet = new Set();
+  const categorySet = new Set();
 
-  allCertificates.forEach(cert => {
+  filtered.forEach(cert => {
     if (cert.year) yearSet.add(cert.year.toString());
     if (cert.issuer) issuerSet.add(cert.issuer);
+    if (cert.category) categorySet.add(cert.category);
   });
 
   const yearFilter = document.getElementById("yearFilter");
   const issuerFilter = document.getElementById("issuerFilter");
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  const currentYear = yearFilter.value;
+  const currentIssuer = issuerFilter.value;
+  const currentCategory = categoryFilter.value;
 
   yearFilter.innerHTML = '<option value="">All Years</option>';
-  issuerFilter.innerHTML = '<option value="">All Institutes</option>';
-
   [...yearSet].sort((a, b) => b - a).forEach(year => {
     const option = document.createElement("option");
     option.value = year;
     option.textContent = year;
+    if (year === currentYear) option.selected = true;
     yearFilter.appendChild(option);
   });
 
+  issuerFilter.innerHTML = '<option value="">All Institutes</option>';
   [...issuerSet].sort().forEach(issuer => {
     const option = document.createElement("option");
     option.value = issuer;
     option.textContent = issuer;
+    if (issuer === currentIssuer) option.selected = true;
     issuerFilter.appendChild(option);
+  });
+
+  categoryFilter.innerHTML = '<option value="">All Categories</option>';
+  [...categorySet].sort().forEach(category => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    if (category === currentCategory) option.selected = true;
+    categoryFilter.appendChild(option);
   });
 }
 
 function applyFilters() {
   const selectedYear = document.getElementById("yearFilter").value;
   const selectedIssuer = document.getElementById("issuerFilter").value;
+  const selectedCategory = document.getElementById("categoryFilter").value;
   const sortOrder = document.getElementById("sortFilter").value;
   const searchValue = document.getElementById("searchInput").value.toLowerCase();
 
   filteredCertificates = allCertificates.filter(cert => {
     const matchYear = !selectedYear || (cert.year && cert.year.toString() === selectedYear);
     const matchIssuer = !selectedIssuer || (cert.issuer && cert.issuer.toLowerCase() === selectedIssuer.toLowerCase());
+    const matchCategory = !selectedCategory || (cert.category && cert.category.toLowerCase() === selectedCategory.toLowerCase());
     const matchSearch =
       cert.title.toLowerCase().includes(searchValue) ||
       cert.issuer.toLowerCase().includes(searchValue);
 
-    return matchYear && matchIssuer && matchSearch;
+    return matchYear && matchIssuer && matchCategory && matchSearch;
   });
 
   if (sortOrder === "newest") {
@@ -113,6 +136,7 @@ function applyFilters() {
   currentPage = 1;
   renderCertificates();
   renderPagination();
+  updateDependentFilters();
 }
 
 function renderCertificates() {
@@ -121,11 +145,36 @@ function renderCertificates() {
 
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
+  filteredCertificates.sort((a, b) => {
+    return (b.highlight === true) - (a.highlight === true);
+  });
+
   const currentCertificates = filteredCertificates.slice(start, end);
 
   currentCertificates.forEach(cert => {
     const card = document.createElement("div");
     card.className = "certificate-card";
+    if (cert.highlight) {
+      card.classList.add("highlighted-certificate");
+    }
+
+    if (cert.highlight) {
+      const badge = document.createElement("div");
+      badge.className = "highlight-badge";
+
+      const category = cert.category?.toLowerCase();
+      if (category.includes("hackathon")) {
+        badge.innerHTML = "🏆 Hackathon";
+      } else if (category.includes("quiz")) {
+        badge.innerHTML = "🧠 Quiz";
+      } else if (category.includes("course")) {
+        badge.innerHTML = "🎓 Course";
+      } else if (category.includes("workshop")) {
+        badge.innerHTML = "📜 Workshop";
+      }
+
+      card.appendChild(badge);
+    }
 
     const img = document.createElement("img");
     img.src = cert.file;
@@ -151,6 +200,7 @@ function renderCertificates() {
     grid.appendChild(card);
   });
 }
+
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
