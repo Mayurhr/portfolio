@@ -1267,18 +1267,23 @@
     }
 
     /* Modal Viewer */
-    .modal {
+   .modal {
         position: fixed;
-        top: 10%;
-        left: 10%;
-        width: 80vw;
-        height: 80vh;
-        background-color: #111;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        top: 50%;
+        left: 50%;
+        width: 90vw;
+        height: 85vh;
+        transform: translate(-50%, -50%);
+        background: rgba(20, 20, 20, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 204, 255, 0.2);
         display: flex;
         flex-direction: column;
+        overflow: hidden;
         z-index: 999;
+        animation: modalFadeIn 0.4s ease;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 204, 255, 0.1);
     }
 
     .modal.hidden {
@@ -1286,25 +1291,30 @@
     }
 
     .modal-header {
+        position: absolute;
+        top: 10px;
+        right: 20px;
         display: flex;
-        justify-content: flex-end;
-        padding: 10px;
-        gap: 10px;
+        gap: 8px;
+        z-index: 10;
     }
 
     .modal-header button {
-        background-color: #333;
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        font-size: 14px;
-        border-radius: 6px;
+        background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+        color: #00ffe0;
+        border: 1px solid #00ffe0;
+        padding: 6px 10px;
+        font-size: 16px;
+        border-radius: 8px;
         cursor: pointer;
-        transition: 0.3s;
+        box-shadow: 0 0 6px rgba(0, 255, 224, 0.4);
+        transition: all 0.3s ease;
     }
 
     .modal-header button:hover {
-        background-color: #555;
+        background: #00ffe0;
+        color: #000;
+        box-shadow: 0 0 12px rgba(0, 255, 224, 0.7);
     }
 
     .modal-content {
@@ -1312,52 +1322,77 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 30px;
+        padding: 20px;
         overflow: auto;
     }
 
     .modal-content img {
         max-width: 95%;
-        max-height: 85%;
-        border-radius: 10px;
-        border: 1px solid #555;
+        max-height: 95%;
+        border-radius: 14px;
+        border: 2px solid rgba(0, 204, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
         object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .modal-content img:hover {
+        transform: scale(1.01);
     }
 
     .modal.modal-maximized {
-        top: 0;
-        left: 0;
         width: 100vw;
         height: 100vh;
+        top: 0;
+        left: 0;
+        transform: none;
         border-radius: 0;
+        border: none;
     }
 
     .modal.modal-minimized {
-        top: 15%;
-        left: 15%;
-        width: 70%;
-        height: 60%;
-        border-radius: 10px;
+        width: 70vw;
+        height: 60vh;
+        transform: translate(-50%, -50%);
+        border-radius: 14px;
     }
 
-    /* Responsive Layout */
-    @media screen and (max-width: 768px) {
-        .certificate-grid {
-            grid-template-columns: repeat(2, 1fr);
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -60%);
         }
 
-        .certificate-thumb {
-            height: 140px;
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .modal {
+            width: 95vw;
+            height: 90vh;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90%;
         }
     }
 
     @media screen and (max-width: 480px) {
-        .certificate-grid {
-            grid-template-columns: 1fr;
+        .modal-header {
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+            padding: 10px;
         }
 
-        .certificate-thumb {
-            height: 120px;
+        .modal-header button {
+            width: 100%;
+            font-size: 13px;
+            padding: 10px;
         }
     }
 
@@ -1578,7 +1613,7 @@
                     <header>
                         <h2 class="h2 article-title">Certificates</h2>
                     </header>
-                    <input type="text" id="searchInput" placeholder="Search certificates..." />
+                    <input type="text" id="searchInput" placeholder="Search certificates..." /><br>
 
                     <div id="filters">
                         <select id="yearFilter">
@@ -1728,6 +1763,7 @@
 </body>
 
 </html>
+
 
 
 
