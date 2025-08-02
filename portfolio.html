@@ -1232,25 +1232,30 @@
     .pagination {
         display: flex;
         justify-content: center;
-        margin: 20px 0 30px;
-        gap: 10px;
+        margin: 25px 0;
+        gap: 8px;
         flex-wrap: wrap;
     }
 
     .pagination button {
-        background-color: #222;
+        background-color: #1a1a1a;
         color: #ccc;
-        border: 1px solid #444;
-        padding: 8px 14px;
+        border: 1px solid #333;
+        padding: 8px 15px;
         border-radius: 8px;
         font-size: 14px;
         cursor: pointer;
-        transition: 0.3s;
+        transition: all 0.3s ease;
+        min-width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .pagination button:hover {
-        background-color: #444;
+        background-color: #333;
         color: #fff;
+        border-color: #00ccff;
     }
 
     .pagination button.active {
@@ -1258,6 +1263,7 @@
         color: #000;
         font-weight: bold;
         border: 1px solid #00ccff;
+        box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
     }
 
     /* Modal Viewer */
@@ -1722,5 +1728,6 @@
 </body>
 
 </html>
+
 
 
