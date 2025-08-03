@@ -91,7 +91,7 @@ function updateDependentFilters() {
   });
 
   issuerFilter.innerHTML = '<option value="">All Institutes</option>';
-  [...issuerSet].sort().forEach(issuer => {
+  [...issuerSet].sort((a, b) => a.localeCompare(b)).forEach(issuer => {
     const option = document.createElement("option");
     option.value = issuer;
     option.textContent = issuer;
@@ -100,7 +100,7 @@ function updateDependentFilters() {
   });
 
   categoryFilter.innerHTML = '<option value="">All Categories</option>';
-  [...categorySet].sort().forEach(category => {
+  [...categorySet].sort((a, b) => a.localeCompare(b)).forEach(category => {
     const option = document.createElement("option");
     option.value = category;
     option.textContent = category;
