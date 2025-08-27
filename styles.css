@@ -1591,3 +1591,92 @@
             transform: translateX(0);
         }
     }
+
+ /*  View Toggle Buttons */
+    .view-toggle {
+    display: flex;
+    gap: 8px;
+    background: #1a1a2e;
+    padding: 4px;
+    border-radius: 8px;
+    }
+
+    .view-toggle button {
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: 0.3s;
+    color: #ccc;
+    }
+
+    .view-toggle button.active {
+    color: #fff;
+    background: #4361ee;
+    border-radius: 6px;
+    }
+
+    /*  Grid View */
+    .certificate-grid.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    transition: all 0.5s ease;
+    }
+
+    /* List View  */
+    .certificate-grid.list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: all 0.5s ease;
+    }
+
+    .certificate-grid.list .certificate-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    background: #1f1f30;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .certificate-grid.list .certificate-card:hover {
+    transform: translateY(-5px);
+    background: #292940;
+    }
+
+    .certificate-grid.list .certificate-card img {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    }
+
+    .certificate-grid.list .certificate-card img:hover {
+    transform: scale(1.05);
+    }
+
+    .certificate-grid.list .certificate-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+    .certificate-grid.list .certificate-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #fff;
+    }
+
+    .certificate-grid.list .certificate-issuer {
+    font-size: 14px;
+    color: #bbb;
+    }
+
+
