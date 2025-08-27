@@ -2,6 +2,28 @@ let allCertificates = [];
 let filteredCertificates = [];
 let currentPage = 1;
 const itemsPerPage = 9;
+const gridBtn = document.getElementById("gridViewBtn");
+const listBtn = document.getElementById("listViewBtn");
+const container = document.getElementById("certificateContainer");
+
+container.classList.add("grid");
+
+gridBtn.addEventListener("click", () => {
+  container.classList.add("grid");
+  container.classList.remove("list");
+  gridBtn.classList.add("active");
+  listBtn.classList.remove("active");
+  renderCertificates();
+});
+
+listBtn.addEventListener("click", () => {
+  container.classList.add("list");
+  container.classList.remove("grid");
+  listBtn.classList.add("active");
+  gridBtn.classList.remove("active");
+  renderCertificates();
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("certificates.json")
@@ -161,6 +183,7 @@ function renderCertificates() {
     if (cert.highlight) {
       const badge = document.createElement("div");
       badge.className = "highlight-badge";
+
 
       const category = cert.category?.toLowerCase();
       if (category.includes("hackathon")) {
