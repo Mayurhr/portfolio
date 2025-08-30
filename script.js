@@ -243,3 +243,20 @@ function renderPagination() {
     pagination.appendChild(btn);
   }
 }
+
+window.addEventListener('scroll', () => {
+  const backToTop = document.getElementById('backToTop');
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+
+//Scroll to top when clicked
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
