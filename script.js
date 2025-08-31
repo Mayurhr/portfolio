@@ -260,3 +260,33 @@ document.getElementById('backToTop').addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+  const stickyHeader = document.getElementById("stickyHeader");
+  const mainNavbar = document.querySelector(".main-content .navbar");
+  const headerHeight = 90; 
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      stickyHeader.style.display = "block";
+      mainNavbar.classList.add("hidden"); 
+    } else {
+      stickyHeader.style.display = "none";
+      mainNavbar.classList.remove("hidden"); 
+    }
+  });
+
+  document.querySelectorAll('#stickyHeader a, .navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+
+
