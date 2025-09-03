@@ -261,32 +261,45 @@ document.getElementById('backToTop').addEventListener('click', () => {
   });
 });
 
-  const stickyHeader = document.getElementById("stickyHeader");
-  const mainNavbar = document.querySelector(".main-content .navbar");
-  const headerHeight = 90; 
+const stickyHeader = document.getElementById("stickyHeader");
+const mainNavbar = document.querySelector(".main-content .navbar");
+const headerHeight = 90;
 
-  window.addEventListener("scroll", () => {
+function handleScroll() {
+  if (window.innerWidth > 768) {
     if (window.scrollY > 200) {
       stickyHeader.style.display = "block";
-      mainNavbar.classList.add("hidden"); 
+      mainNavbar.classList.add("hidden");
     } else {
       stickyHeader.style.display = "none";
-      mainNavbar.classList.remove("hidden"); 
+      mainNavbar.classList.remove("hidden");
+    }
+  } else {
+    stickyHeader.style.display = "none";
+    mainNavbar.classList.remove("hidden");
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("resize", handleScroll);
+document.addEventListener("DOMContentLoaded", handleScroll);
+document.querySelectorAll('#stickyHeader a, .navbar a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offsetTop =
+        target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+
+      if (window.innerWidth > 768) {
+        stickyHeader.style.display = "none";
+        mainNavbar.classList.remove("hidden");
+      }
     }
   });
-
-  document.querySelectorAll('#stickyHeader a, .navbar a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth"
-        });
-      }
-    });
-  });
-
-
+});
