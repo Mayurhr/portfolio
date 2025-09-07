@@ -8,7 +8,7 @@
     <link rel="icon" type="logo" href="assest/logo/logo.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
 </head>
 <button id="backToTop" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
@@ -44,7 +44,7 @@
                         <a href="#about" class="navbar-link">About</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="#resume" class="navbar-link">Resume</a>
+                        <a href="#resume" class="navbar-link">Qualifications</a>
                     </li>
                     <li class="navbar-item">
                         <a href="#skills" class="navbar-link">Skills</a>
@@ -68,7 +68,7 @@
                     <span class="sticky-name">Mayur H R</span>
                     <nav class="sticky-nav" aria-label="Sticky navigation">
                         <a href="#about">About</a>
-                        <a href="#resume">Resume</a>
+                        <a href="#resume">Qualifications</a>
                         <a href="#skills">Skills</a>
                         <a href="#certificates">Certificates</a>
                         <a href="#projects">Projects</a>
@@ -102,7 +102,7 @@
             <section id="resume" aria-label="Resume">
                 <article class="resume active" data-page="resume">
                     <header>
-                        <h2 class="h2 article-title">Resume</h2>
+                        <h2 class="h2 article-title">Qualifications</h2>
                     </header><br>
 
                     <section id="resume" class="timeline">
@@ -112,7 +112,7 @@
                                 <ion-icon name="book-outline"></ion-icon>
                             </div>
 
-                            <h3 class="h3">Education</h3>
+                            <h3 class="h3">Academic Journey</h3>
                         </div>
 
                         <ol class="timeline-list">
@@ -215,178 +215,178 @@
                     </div>
             </section>
 
-        <!-- certificates-->
-        <section id="certificates" aria-label="certificates">
-            <article class="certficates active" data-page="certficates">
-                <header>
-                    <h2 class="h2 article-title">Certificates</h2><br>
-                </header>
-                <input type="text" id="searchInput" placeholder="Search certificates..." /><br>
+            <!-- certificates-->
+            <section id="certificates" aria-label="certificates">
+                <article class="certficates active" data-page="certficates">
+                    <header>
+                        <h2 class="h2 article-title">Certificates</h2><br>
+                    </header>
+                    <input type="text" id="searchInput" placeholder="Search certificates..." /><br>
 
-                <div id="filters">
-                    <select id="yearFilter">
-                        <option value="">All Years</option>
-                    </select>
-                    <select id="categoryFilter">
-                        <option value="">All Categories</option>
-                    </select>
-                    <select id="issuerFilter">
-                        <option value="">All Institutes</option>
-                    </select>
-                    <select id="sortFilter">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                    </select>
-                    <div class="view-toggle">
-                        <button id="gridViewBtn" class="active">🔲</button>
-                        <button id="listViewBtn">📋</button>
-                    </div>
-
-                    <button id="clearFilters">Clear Filters</button>
-                </div>
-
-                <div id="certificateContainer" class="certificate-grid"></div>
-
-                <div id="pagination" class="pagination"></div>
-
-                <!-- Modal for certificate view -->
-                <div id="modal" class="modal hidden">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button id="minimizeModal">−</button>
-                            <button id="maximizeModal">▢</button>
-                            <button id="closeModal">×</button>
+                    <div id="filters">
+                        <select id="yearFilter">
+                            <option value="">All Years</option>
+                        </select>
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                        </select>
+                        <select id="issuerFilter">
+                            <option value="">All Institutes</option>
+                        </select>
+                        <select id="sortFilter">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button id="gridViewBtn" class="active">🔲</button>
+                            <button id="listViewBtn">📋</button>
                         </div>
-                        <img id="imageViewer" src="" alt="Certificate" />
-                    </div>
-                </div>
-            </article>
-        </section>
 
-        <!-- projects-->
-        <section id="projects" aria-label="Projects">
-            <article class="projects active" data-page="projects">
-                <header>
-                    <h2 class="h2 article-title">My Projects</h2>
-                </header><br>
-                <div class="projects-grid">
-                    <!-- Fitness Tracker -->
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="https://www.shutterstock.com/image-photo/hologram-athlete-running-wellness-exercise-600nw-2240460425.jpg"
-                                alt="Fitness Tracker">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/bharath2957s/Advance-fitness-tracker" target="_blank"
-                                        class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                        <button id="clearFilters">Clear Filters</button>
+                    </div>
+
+                    <div id="certificateContainer" class="certificate-grid"></div>
+
+                    <div id="pagination" class="pagination"></div>
+
+                    <!-- Modal for certificate view -->
+                    <div id="modal" class="modal hidden">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="minimizeModal">−</button>
+                                <button id="maximizeModal">▢</button>
+                                <button id="closeModal">×</button>
+                            </div>
+                            <img id="imageViewer" src="" alt="Certificate" />
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- projects-->
+            <section id="projects" aria-label="Projects">
+                <article class="projects active" data-page="projects">
+                    <header>
+                        <h2 class="h2 article-title">My Projects</h2>
+                    </header><br>
+                    <div class="projects-grid">
+                        <!-- Fitness Tracker -->
+                        <div class="project-card" data-category="web">
+                            <div class="project-image">
+                                <img src="https://www.shutterstock.com/image-photo/hologram-athlete-running-wellness-exercise-600nw-2240460425.jpg"
+                                    alt="Fitness Tracker">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://github.com/bharath2957s/Advance-fitness-tracker"
+                                            target="_blank" class="project-link">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Fitness Tracker</h3>
+                                <p class="project-description">
+                                    A comprehensive fitness tracking application that helps users monitor workouts,
+                                    nutrition, and progress.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">node.js</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Fitness Tracker</h3>
-                            <p class="project-description">
-                                A comprehensive fitness tracking application that helps users monitor workouts,
-                                nutrition, and progress.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">node.js</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Blood Management System -->
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpKEbyPEs9DohxB2a363p1HkF_-g-p-Fs0fA&s"
-                                alt="Blood Management System">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/Mayurhr/blood_management_system" target="_blank"
-                                        class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                        <!-- Blood Management System -->
+                        <div class="project-card" data-category="web">
+                            <div class="project-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpKEbyPEs9DohxB2a363p1HkF_-g-p-Fs0fA&s"
+                                    alt="Blood Management System">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://github.com/Mayurhr/blood_management_system" target="_blank"
+                                            class="project-link">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Blood Management System</h3>
+                                <p class="project-description">
+                                    A web-based system for managing blood donations, inventory, and requests between
+                                    donors and recipients.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Python</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Blood Management System</h3>
-                            <p class="project-description">
-                                A web-based system for managing blood donations, inventory, and requests between
-                                donors and recipients.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Python</span>
+                </article>
+            </section>
+
+            <!--Contact section -->
+            <section id="contact" class="contact-text">
+                <article class="about active" data-page="about">
+                    <header>
+                        <h2 class="h2 article-title">Contacts</h2>
+                    </header>
+                    <div class="contact-container">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <ion-icon name="location-outline"></ion-icon>
+                            </div>
+                            <div class="contact-content">
+                                <h3>Address</h3>
+                                <address>Honnali, Davanagere, Karnataka, India</address>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <ion-icon name="mail-outline"></ion-icon>
+                            </div>
+                            <div class="contact-content">
+                                <h3>Email</h3>
+                                <a href="mailto:mayurhr57@gmail.com">mayurhr57@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <ion-icon name="call-outline"></ion-icon>
+                            </div>
+                            <div class="contact-content">
+                                <h3>Phone</h3>
+                                <a href="tel:+919663124725">+91 9663124725</a>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <ion-icon name="calendar-outline"></ion-icon>
+                            </div>
+                            <div class="contact-content">
+                                <h3>Date of Birth</h3>
+                                <time datetime="2005-11-23">November 23, 2005</time>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <h3>Connect With Me</h3>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon">
+                                    <ion-icon name="logo-linkedin"></ion-icon>
+                                </a>
+                                <a href="https://github.com/Mayurhr" target="_blank" class="social-icon">
+                                    <ion-icon name="logo-github"></ion-icon>
+                                </a>
                             </div>
                         </div>
                     </div>
-            </article>
-        </section>
-
-        <!--Contact section -->
-        <section id="contact" class="contact-text">
-            <article class="about active" data-page="about">
-                <header>
-                    <h2 class="h2 article-title">Contacts</h2>
-                </header>
-                <div class="contact-container">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <ion-icon name="location-outline"></ion-icon>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Address</h3>
-                            <address>Honnali, Davanagere, Karnataka, India</address>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <ion-icon name="mail-outline"></ion-icon>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Email</h3>
-                            <a href="mailto:mayurhr57@gmail.com">mayurhr57@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <ion-icon name="call-outline"></ion-icon>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Phone</h3>
-                            <a href="tel:+919663124725">+91 9663124725</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <ion-icon name="calendar-outline"></ion-icon>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Date of Birth</h3>
-                            <time datetime="2005-11-23">November 23, 2005</time>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <h3>Connect With Me</h3>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/" target="_blank" class="social-icon">
-                                <ion-icon name="logo-linkedin"></ion-icon>
-                            </a>
-                            <a href="https://github.com/Mayurhr" target="_blank" class="social-icon">
-                                <ion-icon name="logo-github"></ion-icon>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
+                </article>
+            </section>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
