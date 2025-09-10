@@ -8,7 +8,7 @@
     <link rel="icon" type="logo" href="assest/logo/logo.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
 <button id="backToTop" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
@@ -159,7 +159,7 @@
                 <article class="skills active" data-page="skills">
                     <header>
                         <h2 class="h2 article-title">Technical Skills</h2>
-                    </header><br>
+                    </header>
                     <div class="skills-section">
                         <h2 class="section-title">Programming Languages</h2>
                         <div class="skills-grid">
@@ -242,6 +242,7 @@
                             <button id="listViewBtn">List</button>
                         </div>
 
+
                         <button id="clearFilters">Clear Filters</button>
                     </div>
 
@@ -249,15 +250,14 @@
 
                     <div id="pagination" class="pagination"></div>
 
-                    <!-- Modal for certificate view -->
-                    <div id="modal" class="modal hidden">
+                    <!-- Modal view -->
+                    <div id="modal" class="modal hidden" aria-hidden="true">
+                        <div class="modal-header">
+                            <button id="closeModal" aria-label="Close">✕</button>
+                        </div>
+
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button id="minimizeModal">−</button>
-                                <button id="maximizeModal">▢</button>
-                                <button id="closeModal">×</button>
-                            </div>
-                            <img id="imageViewer" src="" alt="Certificate" />
+                            <img id="imageViewer" src="" alt="Certificate" draggable="false">
                         </div>
                     </div>
                 </article>
@@ -394,4 +394,3 @@
 </body>
 
 </html>
-
