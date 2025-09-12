@@ -223,7 +223,6 @@ function renderCertificates() {
     grid.appendChild(card);
   });
 }
-
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
@@ -253,7 +252,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-//Scroll to top when clicked
 document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({
     top: 0,
@@ -303,3 +301,65 @@ document.querySelectorAll('#stickyHeader a, .navbar a').forEach(anchor => {
     }
   });
 });
+
+const modal = document.getElementById("modal");
+const image = document.getElementById("imageViewer");
+const closeModal = document.getElementById("closeModal");
+let scale = 1;
+let translateX = 0, translateY = 0;
+let isDragging = false, startX, startY;
+
+window.openModal = function (src) {
+  image.src = src;
+  modal.classList.remove("hidden");
+  document.body.classList.add("modal-open");
+  resetTransform();
+};
+
+// Close modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  document.body.classList.remove("modal-open");
+  resetTransform();
+});
+
+// Zoom with mouse scroll
+image.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+  const newScale = Math.min(Math.max(scale * zoomFactor, 1), 4);
+  const rect = image.getBoundingClientRect();
+  const offsetX = e.clientX - rect.left;
+  const offsetY = e.clientY - rect.top;
+  const worldX = (offsetX - translateX) / scale;
+  const worldY = (offsetY - translateY) / scale;
+
+  scale = newScale;
+  translateX = offsetX - worldX * scale;
+  translateY = offsetY - worldY * scale;
+
+  updateTransform();
+});
+
+// Drag 
+image.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX - translateX;
+  startY = e.clientY - translateY;
+});
+document.addEventListener("mouseup", () => (isDragging = false));
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  translateX = e.clientX - startX;
+  translateY = e.clientY - startY;
+  updateTransform();
+});
+function resetTransform() {
+  scale = 1;
+  translateX = 0;
+  translateY = 0;
+  updateTransform();
+}
+function updateTransform() {
+  image.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
