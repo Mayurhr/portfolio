@@ -1028,6 +1028,90 @@
         }
     }
 
+    /* Resume Popup */
+    .resume-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.4s ease;
+    }
+
+    .resume-popup .popup-content {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    max-width: 400px;
+    width: 90%;
+    animation: slideUp 0.4s ease;
+    }
+
+    .popup-content h2 {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.5rem;
+    color: #6366f1;
+    }
+
+    .popup-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    }
+
+    /* Icon */
+    .popup-icon {
+    font-size: 3rem;
+    color: #e41717;
+    margin-bottom: 0.8rem;
+    }
+
+    /* Got it Button */
+    .popup-btn {
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .popup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(99,102,241,0.4);
+    }
+
+    .resume-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resume-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    }
+    @keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
+
     /*certifcate section */
     body {
         margin: 0;
