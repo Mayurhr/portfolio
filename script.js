@@ -363,3 +363,12 @@ function resetTransform() {
 function updateTransform() {
   image.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
 }
+//popup message in contact of resume
+function showResumePopup(e) {
+  e.preventDefault();
+  document.getElementById("resumePopup").style.display = "flex";
+}
+function closeResumePopup() {
+  document.getElementById("resumePopup").style.display = "none";
+}
+
