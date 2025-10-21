@@ -294,5 +294,13 @@
     "file": "certificates/38.jpg",
     "category": "Webinars",
     "highlight": true 
+  },
+  {
+    "title": "Tech Marathon",
+    "issuer": "PES INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
+    "year": "2025",
+    "file": "certificates/39.jpg",
+    "category": "Quiz",
+    "highlight": true
   }
 ]
