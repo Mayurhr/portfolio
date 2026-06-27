@@ -1,0 +1,314 @@
+[
+  {
+    "title": "Getting started with MongoDB Atlas",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/thumbnail?id=1BRbjWLszZbggo4b7RO7nWt_sxrduMOos&sz=w2000"
+  },
+  {
+    "title": "MongoDB and the Document Model",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1e--QmEcl7J35sd-4fy4Pjm8YUcBS5vdQ/view?usp=drive_link"
+  },
+  {
+    "title": "Connecting to a MongoDB Database",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/thumbnail?id=1H-flilOoniGutWVpZQkTYL_l30v2w4E_&sz=w4000"
+  },
+  {
+    "title": "MongoDB CURD operations:insert and Find Documents",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1h7rersVwAHlgmRulWc7sUbVZjiokpYbG/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB CURD operations:Replace and Delete Documents",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1p7VNBC5aqota7S961xMOHbxVAcFPAk1R/view?usp=sharing"
+  },
+  {
+    "title": "MongoDB CURD operations:Modifying Query Results",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1EH97SO2p2vexeMYd9JP0sXfeZy2xlVbo/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Aggregation",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1tUU3wcSrgaAP9nLh3X7uczKyarUeKj_M/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB indexes",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1LV34oU1FPcLjDkKLZPFlsBKEHVARNBd-/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Atlas Search",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1x5V1GZvoPQY9sqSSH5GpHrl53ff3j4PT/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Data Modeling Intro",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1ljmzz4eLS0xrovqL7ATRHGuiUraKZvAO/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Transactions",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1n_OwwWJNn3hZSRyuGrLPwqUx2YS8LQGy/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Aggregation in Python",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1iGCjVvfgN-6YpBjcOqJyTFp_6vhPCd9j/view?usp=drive_link"
+  },
+  {
+    "title": "Connecting to MongoDB in C#",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1r3Q0RdOejmjjGrd-YvCHcsJ2EyOp5AIk/view?usp=drive_link"
+  },
+  {
+    "title": "Calculating Percentiles from array entries (Lab Only)",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1PxDW3iIUs73IhQCzwNs6nX0zOfoaiERY/view?usp=drive_link"
+  },
+  {
+    "title": "Business Analysis & Process Management",
+    "issuer": "Coursera",
+    "year": "2024",
+    "category": "Business",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/15fI_3u_x61Iq1Zkv2T-zEnuaVjNdqfPX/view?usp=drive_link"
+  },
+  {
+    "title": "Build a free website with WordPress",
+    "issuer": "Coursera",
+    "year": "2024",
+    "category": "Web Development",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1bf9Yw6WJdpZMQayiwtNcZDB6RL6JS6jY/view?usp=drive_link"
+  },
+  {
+    "title": "National space day Quiz",
+    "issuer": "National Water Academy, Central Water Commission",
+    "year": "2024",
+    "category": "Quiz",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1vscFEkTIU_vVCuByqzopglL2J3sYW934/view?usp=drive_link"
+  },
+  {
+    "title": "AI for beginners",
+    "issuer": "HP Life",
+    "year": "2024",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1fv8cz9ZxNHs6sxR9h_JJv5UF5QjbCpUH/view?usp=drive_link"
+  },
+  {
+    "title": "MongoDB Developer Path",
+    "issuer": "MongoDB",
+    "year": "2024",
+    "category": "MongoDB",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/17FIyfrs5RZeJl68beUEvphqChLVRU8sY/view?usp=drive_link"
+  },
+  {
+    "title": "Data Science & Analytics",
+    "issuer": "HP Life",
+    "year": "2024",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1TOkYDrZdCIXWkKguhAoRyDlFwW2y_dNH/view?usp=drive_link"
+  },
+  {
+    "title": "Quiz Game with HTML & CSS",
+    "issuer": "SkillEcted",
+    "year": "2023",
+    "category": "Quiz",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1PRxCxo2HyJt9wPStWuoGMqHMMMrSixJH/view?usp=drive_link"
+  },
+  {
+    "title": "Knowledge Knockout",
+    "issuer": "PES INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
+    "year": "2024",
+    "category": "Quiz",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/1k_2xawO_nxFpfog_Pt-efga_0Z8wE6Gf/view?usp=drive_link"
+  },
+  {
+    "title": "CYBER CADET",
+    "issuer": "ISEA",
+    "year": "2025",
+    "category": "Cyber Security",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/1xR6_36Pc8MmaSMU8JZM6Zk1mmOrhe-6Z/view?usp=drive_link"
+  },
+  {
+    "title": "Data Analysis with Python",
+    "issuer": "MachineLearning.org.in",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1NzkJuRim0K8ZMkzoqwX7v8kHnjKZY2qE/view?usp=drive_link"
+  },
+  {
+    "title": "HTML and CSS for Web Designers",
+    "issuer": "Udemy",
+    "year": "2025",
+    "category": "Web Development",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1wb5pM_wrxgaCoJpgJIA_2DhsKj0cjbIF/view?usp=drive_link"
+  },
+  {
+    "title": "Master Python & Generative AI",
+    "issuer": "Udemy",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1fRs7fCoSsFAr5x6RDm2dUnU6djsEaCie/view?usp=drive_link"
+  },
+  {
+    "title": "FOOD-PLANT-HEALTH webinar",
+    "issuer": "Vegan Outreach",
+    "year": "2025",
+    "category": "Awareness / Misc",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1D7zwZTQgAOEpa2ob3T1w1wUIxVH97ph9/view?usp=drive_link"
+  },
+  {
+    "title": "Quiz on Dr. B. R. Ambedkar's Birth Anniversary",
+    "issuer": "Certify'em",
+    "year": "2025",
+    "category": "Quiz",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1Y0c0ZqA1gFxQ3HDbdkW9wb9WmHOQ_FGh/view?usp=drive_link"
+  },
+  {
+    "title": "Python and Flask Framework",
+    "issuer": "Udemy",
+    "year": "2025",
+    "category": "Web Development",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1JYImmD7jv4aVdUh0qqtk51kMFl2kSBTa/view?usp=drive_link"
+  },
+  {
+    "title": "AI for students",
+    "issuer": "Nxt Wave",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1Acjf4ER9cxKVlr963MERrp2DlU4lk_NQ/view?usp=drive_link"
+  },
+  {
+    "title": "The Complete C++ Programming Course",
+    "issuer": "Udemy",
+    "year": "2025",
+    "category": "Programming",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1qJ4RIyISirgtcPU97F2w0m4l4de-ZK2d/view?usp=drive_link"
+  },
+  {
+    "title": "Intro to Generative AI Studio",
+    "issuer": "Simplilearn",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1MTkM4jMvUUVyzg0p0BsKFTvKHm5PEmhS/view?usp=drive_link"
+  },
+  {
+    "title": "HACKTECH FUSION 3.0",
+    "issuer": "Bapuji Institute of Engineering and Technology",
+    "year": "2025",
+    "category": "Hackathon",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/1N_eYtzdxeGEDGGq1kmABTgSHn2sGVsnk/view?usp=drive_link"
+  },
+  {
+    "title": "GenAI Powered Data Analytics Job Simulation",
+    "issuer": "TATA",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1pXnPTnmvSeQfHRXeJiOE7bfHsQTQWQLr/view?usp=drive_link"
+  },
+  {
+    "title": "Cybersecurity Analyst Job Simulation",
+    "issuer": "TATA",
+    "year": "2025",
+    "category": "Cyber Security",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/1DA1Dqa6xvyzwrMn4gs5pY8zBxRnpjUkA/view?usp=drive_link"
+  },
+  {
+    "title": "Generative AI complete Bootcamp-NLP,Transformers & Gen AI",
+    "issuer": "Udemy",
+    "year": "2025",
+    "category": "AI/ML",
+    "highlight": false,
+    "driveLink": "https://drive.google.com/file/d/131hTedy5wAXY8lUdxfKxr_-aJSUQV-UV/view?usp=drive_link"
+  },
+  {
+    "title": "Training Program on Salesforce Development",
+    "issuer": "EXCELR",
+    "year": "2025",
+    "category": "Webinars",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/1ouIPRurjOVXZ2l9S4j95TYU84s4-8d90/view?usp=drive_link"
+  },
+  {
+    "title": "Tech Marathon",
+    "issuer": "PES INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
+    "year": "2025",
+    "category": "Quiz",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/15j9Am6_g9UZKnNqmsWZzrnTWrNRQOLxE/view?usp=drive_link"
+  },
+  {
+    "title": "HACK FOR HIRE 2026",
+    "issuer": "Anvesana TBI",
+    "year": "2026",
+    "category": "Hackathon",
+    "highlight": true,
+    "driveLink": "https://drive.google.com/file/d/1lUgSaBGcgKMpGL9oO5dKckjn-fZTixqg/view?usp=drive_link"
+  }
+]

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Certificates | Mayur H R Portfolio</title>
+    <link rel="icon" type="logo" href="assest/logo/logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles specific to the Certificates Subpage */
+        #certificates-page-container {
+            display: block !important;
+        }
+        .back-btn-container {
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange-yellow-crayola);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        .back-btn:hover {
+            color: var(--white-1);
+            transform: translateX(-4px);
+        }
+        /* Make sure the certificate container and pagination display correctly here */
+        #certificateContainer {
+            display: grid !important;
+        }
+        #pagination {
+            display: flex !important;
+        }
+        /* Modernized certificate subpage layout */
+        .subpage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .subpage-title-wrap {
+            position: relative;
+        }
+        .cert-count-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--orange-yellow-crayola);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!--  #SIDEBAR-->
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <div class="profile-banner">
+                    <div class="banner-image">
+                        <img src="assest/logo/myimg.jpeg" alt="Mayur H R">
+                    </div>
+                    <div class="banner-content">
+                        <h1 class="name">Mayur H R</h1><br>
+                        <p class="tagline">"Passionate about Learning & Growth"</p><br>
+                        <a href="index.html" class="resume-link">
+                            ← Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="main-content">
+            <article class="active" id="certificates-page-container">
+                <div class="back-btn-container">
+                    <a href="index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Portfolio
+                    </a>
+                </div>
+
+                <header class="subpage-header">
+                    <div class="subpage-title-wrap">
+                        <h2 class="h2 article-title" style="display: inline-block; margin: 0;">All Certificates</h2>
+                        <span id="certCount" class="cert-count-badge">0</span>
+                    </div>
+                </header>
+
+                <!-- Combined Filters (Search, Year, Category) -->
+                <div id="filters">
+                    <input type="text" id="searchInput" placeholder="Search certificates by title or issuer..." />
+                    
+                    <select id="yearFilter">
+                        <option value="">All Years</option>
+                    </select>
+
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+
+                    <button id="clearFilters">
+                        Clear Filters
+                    </button>
+                </div>
+
+                <!-- Certificates Grid -->
+                <div id="certificateContainer" class="certificate-grid">
+                    <!-- Loaded dynamically via certificates.js -->
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination" class="pagination">
+                    <!-- Loaded dynamically via certificates.js -->
+                </div>
+
+                <!-- Fullscreen Image Viewer Modal -->
+                <div id="modal" class="modal hidden" aria-hidden="true">
+                    <div class="modal-header">
+                        <button id="closeModal" aria-label="Close">✕</button>
+                    </div>
+                    <div class="modal-content">
+                        <img id="imageViewer" src="" alt="Certificate" draggable="false">
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="certificates.js"></script>
+</body>
+
+</html>
