@@ -1,16 +1,9 @@
 // Config and State
-const HOUSE_COORDS = { lat: 14.2472, lng: 75.6203 }; // Honnali, Karnataka coordinates
+const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 }; 
 const resumeFileId = "1YSaDrZv8_H2XIdL5ohuMI_Lmj4EoC_2J";
 
 let allCertificates = [];
 let featuredCertificates = [];
-let globeInstance = null;
-let cloudsAnimationId = null;
-
-// ==========================================
-// 1. DYNAMIC SCRIPTS & DRIVE IMAGE LOADER
-// ==========================================
-
 // Google Drive URL Converter
 function getGoogleDriveImageUrl(driveUrl) {
   if (!driveUrl) return "";
@@ -319,241 +312,17 @@ function handleSwipe() {
     navigateModal(-1);
   }
 }
-
 // ==========================================
-// 4. FULLSCREEN 3D EARTH EXPERIENCE
-// ==========================================
-
-async function openEarthExperience() {
-  const overlay = document.getElementById('earthOverlay');
-  const loader = document.getElementById('earthLoading');
-  const popupCard = document.getElementById('pinPopupCard');
-  
-  overlay.classList.remove('hidden');
-  loader.classList.remove('hidden');
-  popupCard.classList.add('hidden');
-  document.body.classList.add('modal-open');
-  
-  try {
-    // Dynamically load Three.js first, then Globe.gl UMD
-    await loadScript('https://unpkg.com/three@0.146.0/build/three.min.js');
-    await loadScript('https://unpkg.com/globe.gl');
-    
-    if (typeof Globe === 'undefined') {
-      throw new Error('Globe.gl failed to load.');
-    }
-    
-    const container = document.getElementById('earthContainer');
-    container.innerHTML = '';
-    
-    // Initialize 3D Globe
-    globeInstance = Globe()(container)
-      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
-      .backgroundImageUrl('https://unpkg.com/three-globe/example/img/night-sky.png')
-      .showAtmosphere(true)
-      .atmosphereColor('#80d0ff')
-      .atmosphereAltitude(0.18)
-      .enableZoom(true);
-      
-    const controls = globeInstance.controls();
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.maxDistance = 350;
-    controls.minDistance = 12;
-    
-    // Set rotating Clouds layer using Three.js mesh
-    const THREE = window.THREE;
-    if (THREE) {
-      const CLOUDS_IMG_URL = 'https://unpkg.com/three-globe/example/img/earth-clouds.png';
-      const CLOUDS_ALT = 0.005;
-      const CLOUDS_ROT_SPEED = -0.005; 
-
-      new THREE.TextureLoader().load(CLOUDS_IMG_URL, cloudsTxt => {
-        const cloudsMesh = new THREE.Mesh(
-          new THREE.SphereGeometry(globeInstance.getGlobeRadius() * (1 + CLOUDS_ALT), 75, 75),
-          new THREE.MeshPhongMaterial({ map: cloudsTxt, transparent: true })
-        );
-        globeInstance.scene().add(cloudsMesh);
-
-        function rotateClouds() {
-          if (!globeInstance) return;
-          cloudsMesh.rotation.y += CLOUDS_ROT_SPEED * Math.PI / 180;
-          cloudsAnimationId = requestAnimationFrame(rotateClouds);
-        }
-        rotateClouds();
-      });
-    }
-    
-    // Pin Marker Data
-    const markerData = [{
-      lat: HOUSE_COORDS.lat,
-      lng: HOUSE_COORDS.lng,
-      name: 'Mayur H R',
-      location: 'Honnali, Karnataka',
-      role: 'Software Developer',
-      img: 'assest/logo/myimg.jpeg'
-    }];
-    
-    globeInstance
-      .htmlElementsData(markerData)
-      .htmlElement(d => {
-        const el = document.createElement('div');
-        el.className = 'custom-globe-marker';
-        el.innerHTML = `
-          <div class="marker-pulse"></div>
-          <div class="marker-ripple"></div>
-          <div class="marker-pin">
-            <img src="${d.img}" alt="${d.name}" />
-          </div>
-          <div class="marker-tooltip">
-            <span class="tooltip-icon">📍</span>
-            <div class="tooltip-content">
-              <div class="tooltip-name">${d.name}</div>
-              <div class="tooltip-loc">${d.location}</div>
-              <div class="tooltip-role">${d.role}</div>
-            </div>
-          </div>
-        `;
-        
-        el.querySelector('.marker-pin').addEventListener('click', (e) => {
-          e.stopPropagation();
-          showPopupCard();
-        });
-        
-        return el;
-      });
-      
-    // Set initial viewpoint in space
-    globeInstance.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 0);
-    
-    // Hide loader and start fly-in transition
-    setTimeout(() => {
-      loader.classList.add('hidden');
-      runCinematicFlight();
-    }, 1200);
-    
-  } catch (error) {
-    console.error(error);
-    loader.innerHTML = `
-      <div class="earth-error">
-        <i class="fas fa-exclamation-circle"></i>
-        <p>Could not load 3D orbit visualization.</p>
-        <button onclick="closeEarthExperience()" class="close-orbit-err-btn">Go Back</button>
-      </div>
-    `;
-  }
-}
-
-function runCinematicFlight() {
-  if (!globeInstance) return;
-  
-  // Sequence of flight: India -> Karnataka -> Honnali -> House Location
-  globeInstance.pointOfView({ lat: 20.5937, lng: 78.9629, altitude: 1.5 }, 2500);
-  
-  setTimeout(() => {
-    if (!globeInstance) return;
-    globeInstance.pointOfView({ lat: 15.3173, lng: 75.7139, altitude: 0.7 }, 2000);
-    
-    setTimeout(() => {
-      if (!globeInstance) return;
-      globeInstance.pointOfView({ lat: HOUSE_COORDS.lat, lng: HOUSE_COORDS.lng, altitude: 0.18 }, 1800);
-      
-      setTimeout(() => {
-        if (!globeInstance) return;
-        globeInstance.pointOfView({ lat: HOUSE_COORDS.lat, lng: HOUSE_COORDS.lng, altitude: 0.025 }, 1500);
-        
-        setTimeout(() => {
-          showPopupCard();
-        }, 1500);
-      }, 1800);
-    }, 2000);
-  }, 2500);
-}
-
-function showPopupCard() {
-  const card = document.getElementById('pinPopupCard');
-  card.classList.remove('hidden');
-  card.classList.add('show');
-}
-
-function closeEarthExperience() {
-  const overlay = document.getElementById('earthOverlay');
-  overlay.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-  
-  if (cloudsAnimationId) {
-    cancelAnimationFrame(cloudsAnimationId);
-    cloudsAnimationId = null;
-  }
-  
-  // WebGL memory cleanup
-  if (globeInstance) {
-    try {
-      const renderer = globeInstance.renderer();
-      if (renderer) {
-        renderer.dispose();
-        if (renderer.forceContextLoss) {
-          renderer.forceContextLoss();
-        }
-        const gl = renderer.getContext();
-        if (gl) {
-          const loseContext = gl.getExtension('WEBGL_lose_context');
-          if (loseContext) loseContext.loseContext();
-        }
-      }
-    } catch (e) {
-      console.warn('Error releasing WebGL resources:', e);
-    }
-    globeInstance = null;
-  }
-  
-  document.getElementById('earthContainer').innerHTML = '';
-}
-
-// Global escape key to close Earth experience
-document.addEventListener("keydown", (e) => {
-  const earthOverlay = document.getElementById('earthOverlay');
-  if (earthOverlay && !earthOverlay.classList.contains("hidden")) {
-    if (e.key === "Escape") {
-      closeEarthExperience();
-    }
-  }
-});
-
-// ==========================================
-// 5. EXISTING PROJECT LOGIC (PRESERVED)
+// 4. EXISTING PROJECT LOGIC 
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Fetch certificates from JSON
   fetch("certificates.json")
     .then(res => res.json())
     .then(data => {
       allCertificates = data;
       renderFeaturedCertificates();
     });
-
-  // Location link trigger
-  const locationIcon = document.getElementById("locationIcon");
-  if (locationIcon) {
-    locationIcon.addEventListener("click", (e) => {
-      e.preventDefault();
-      openEarthExperience();
-    });
-  }
-  
-  // Close buttons
-  const closeEarthBtn = document.getElementById("closeEarth");
-  if (closeEarthBtn) {
-    closeEarthBtn.addEventListener("click", closeEarthExperience);
-  }
-  
-  const closePopupCardBtn = document.getElementById("closePopupCard");
-  if (closePopupCardBtn) {
-    closePopupCardBtn.addEventListener("click", () => {
-      document.getElementById("pinPopupCard").classList.add("hidden");
-    });
-  }
 });
 
 // Back to Top button
@@ -667,3 +436,9 @@ if (messageForm) {
     });
   });
 }
+
+AOS.init({
+    duration: 1000,
+    once: true,
+    easing: "ease-out-cubic"
+});
