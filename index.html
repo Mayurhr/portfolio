@@ -8,6 +8,7 @@
     <link rel="icon" type="logo" href="assest/logo/logo.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 </head>
 <button id="backToTop" aria-label="Back to top">
@@ -24,12 +25,19 @@
                 <div class="profile-banner">
 
                     <div class="banner-image">
-                        <img src="assest/logo/myimg.jpeg" alt="Mayur H R">
+                        <img src="https://drive.google.com/thumbnail?id=1b-KU0haQ1z6gIuQqRtKE0ARiI6Z4lMlt&sz=w2000"
+                            alt="Mayur H R">
                     </div>
 
                     <div class="banner-content">
-                        <h1 class="name">Mayur H R</h1><br>
-                        <p class="tagline">"Passionate about Learning & Growth"</p><br>
+                        <h1 class="name">Mayur H R</h1>
+
+                        <p class="tagline">
+                            "Passionate about Learning & Growth"
+                        </p>
+                    </div>
+
+                    <div class="resume-container">
                         <a href="#" class="resume-link" onclick="openResumeModal(event)">
                             Resume
                         </a>
@@ -93,8 +101,11 @@
             <!-- Sticky Header -->
             <div id="stickyHeader">
                 <div class="sticky-content">
-                    <img src="assest/logo/myimg.jpeg" alt="Mayur H R" class="sticky-img">
+                    <img src="https://drive.google.com/thumbnail?id=1b-KU0haQ1z6gIuQqRtKE0ARiI6Z4lMlt&sz=w2000"
+                        alt="Mayur H R" class="sticky-img">
+
                     <span class="sticky-name">Mayur H R</span>
+
                     <nav class="sticky-nav" aria-label="Sticky navigation">
                         <a href="#about">About</a>
                         <a href="#resume">Qualifications</a>
@@ -107,571 +118,595 @@
             </div>
 
             <!--#ABOUT-->
+            <section id="about" data-aos="fade-up">
+                <article class="about active" data-page="about">
+                    <section id="about" class="about-text"><br>
+                        <header>
+                            <h2 class="h2 article-title">About me</h2>
+                        </header>
+                        <p>
+                            I'm a Web Developer from Honnali, Davanagere, passionate about creating
+                            functional and user-friendly websites. I enjoy turning ideas into reality
+                            through clean code and intuitive designs.
+                        </p>
 
-            <article class="about active" data-page="about">
-                <section id="about" class="about-text"><br>
-                    <header>
-                        <h2 class="h2 article-title">About me</h2>
-                    </header>
-                    <p>
-                        I'm a Web Developer from Honnali, Davanagere, passionate about creating
-                        functional and user-friendly websites. I enjoy turning ideas into reality
-                        through clean code and intuitive designs.
-                    </p>
-
-                    <p>
-                        My focus is on building responsive websites that deliver great user experiences.
-                        I pay attention to details and ensure my work meets both technical requirements
-                        and design standards.
-                    </p>
-                </section>
-            </article>
-
+                        <p>
+                            My focus is on building responsive websites that deliver great user experiences.
+                            I pay attention to details and ensure my work meets both technical requirements
+                            and design standards.
+                        </p>
+                    </section>
+                </article>
+            </section>
             <!--#Resume-->
-            <section id="resume" aria-label="Resume">
-                <article class="resume active" data-page="resume">
-                    <header>
-                        <h2 class="h2 article-title">Qualifications</h2>
-                    </header><br>
+            <section id="resume" data-aos="fade-right">
+                <section id="resume" aria-label="Resume">
+                    <article class="resume active" data-page="resume">
+                        <header>
+                            <h2 class="h2 article-title">Qualifications</h2>
+                        </header><br>
 
-                    <div class="title-wrapper">
-                        <div class="icon-box">
-                            <ion-icon name="book-outline"></ion-icon>
+                        <div class="title-wrapper">
+                            <div class="icon-box">
+                                <ion-icon name="book-outline"></ion-icon>
+                            </div>
+
+                            <h3 class="h3">Academic Journey</h3>
                         </div>
 
-                        <h3 class="h3">Academic Journey</h3>
-                    </div>
+                        <ol class="timeline-list">
 
-                    <ol class="timeline-list">
+                            <li class="timeline-item">
 
-                        <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">PES Institute of Technology</h4>
 
-                            <h4 class="h4 timeline-item-title">PES Institute of Technology</h4>
+                                <span>2023 - present</span>
 
-                            <span>2023 - present</span>
+                                <p class="timeline-text">
+                                    <strong>Currently pursuing</strong> Bachelor's in Information Science &
+                                    Engineering.<br>
+                                    • Specializing in <strong>Python & Web Development</strong><br>
+                                    • Participant in <strong>hackathons</strong> and seminars
+                                </p>
+                            </li>
+                            <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">Sri Vijaya PU college,Honnali</h4>
+                                <span>2021 - 2023</span>
+                                <p class="timeline-text">
+                                    <strong>Pre-University College (PCMB)</strong> completed with distinction<br>
+                                    • Scored <strong>88%</strong> in final examinations<br>
+                                    • Participant in <strong>Science Exhibition</strong>
+                            </li>
+                            <li class="timeline-item">
 
-                            <p class="timeline-text">
-                                <strong>Currently pursuing</strong> Bachelor's in Information Science &
-                                Engineering.<br>
-                                • Specializing in <strong>Python & Web Development</strong><br>
-                                • Participant in <strong>hackathons</strong> and seminars
-                            </p>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Sri Vijaya PU college,Honnali</h4>
-                            <span>2021 - 2023</span>
-                            <p class="timeline-text">
-                                <strong>Pre-University College (PCMB)</strong> completed with distinction<br>
-                                • Scored <strong>88%</strong> in final examinations<br>
-                                • Participant in <strong>Science Exhibition</strong>
-                        </li>
-                        <li class="timeline-item">
+                                <h4 class="h4 timeline-item-title">S.V.M.E.School,Honnali</h4>
 
-                            <h4 class="h4 timeline-item-title">S.V.M.E.School,Honnali</h4>
+                                <span>2013 - 2021</span>
 
-                            <span>2013 - 2021</span>
-
-                            <p class="timeline-text">
-                                Completed <strong>SSLC with 80%</strong> (State Board)<br>
-                                • Organized annual <strong>cultural fest</strong>
-                            </p>
-                        </li>
-                    </ol>
-            </section>
-            </article>
+                                <p class="timeline-text">
+                                    Completed <strong>SSLC with 80%</strong> (State Board)<br>
+                                    • Organized annual <strong>cultural fest</strong>
+                                </p>
+                            </li>
+                        </ol>
+                </section>
+                </article>
             </section>
 
             <!--#SKILLS-->
-            <section id="skills" aria-label="Skills">
-                <article class="skills active" data-page="skills">
-                    <header>
-                        <h2 class="h2 article-title">Technical Skills</h2>
-                    </header>
-                    <div class="skills-category-grid">
+            <section id="skills" data-aos="fade-left">
+                <section id="skills" aria-label="Skills">
+                    <article class="skills active" data-page="skills">
+                        <header>
+                            <h2 class="h2 article-title">Technical Skills</h2>
+                        </header>
+                        <div class="skills-category-grid">
 
-                        <!-- Programming Languages -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fab fa-python python-icon"></i>
-                                    <span>Python</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-cuttlefish c-icon"></i>
-                                    <span>C</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-cuttlefish cpp-icon"></i>
-                                    <span>C++</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-java java-icon"></i>
-                                    <span>Java</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Frontend Development -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-laptop-code"></i> Frontend</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fab fa-html5 html-icon"></i>
-                                    <span>HTML5</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-css3-alt css-icon"></i>
-                                    <span>CSS3</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-js js-icon"></i>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fab fa-react react-icon"></i>
-                                    <span>React.js</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Backend Development -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-server"></i> Backend</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fab fa-node-js node-icon"></i>
-                                    <span>Node.js</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-flask flask-icon"></i>
-                                    <span>Flask</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-server express-icon"></i>
-                                    <span>Express.js</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Databases -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-database"></i> Databases</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fas fa-database mongodb-icon"></i>
-                                    <span>MongoDB</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-database mysql-icon"></i>
-                                    <span>MySQL</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-database postgresql-icon"></i>
-                                    <span>PostgreSQL</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tools -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-tools"></i> Tools</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fab fa-git-alt git-icon"></i>
-                                    <span>Git & GitHub</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-code vscode-icon"></i>
-                                    <span>VS Code</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-paper-plane postman-icon"></i>
-                                    <span>Postman</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cloud -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-cloud"></i> Cloud</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fab fa-aws aws-icon"></i>
-                                    <span>AWS</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-cloud vercel-icon"></i>
-                                    <span>Vercel</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-cloud-upload-alt netlify-icon"></i>
-                                    <span>Netlify</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- AI / ML -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-brain"></i> AI / ML</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fas fa-brain tensorflow-icon"></i>
-                                    <span>TensorFlow</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-robot ml-icon"></i>
-                                    <span>Machine Learning</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-network-wired dl-icon"></i>
-                                    <span>Deep Learning</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Others -->
-                        <div class="skills-category-card">
-                            <h3 class="category-title"><i class="fas fa-plus-circle"></i> Others</h3>
-                            <div class="skills-chips-container">
-                                <div class="skill-chip">
-                                    <i class="fas fa-shield-alt cyber-icon"></i>
-                                    <span>Cybersecurity</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-lightbulb problem-icon"></i>
-                                    <span>Problem Solving</span>
-                                </div>
-                                <div class="skill-chip">
-                                    <i class="fas fa-users agile-icon"></i>
-                                    <span>Agile</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </article>
-            </section>
-
-            <!-- certificates-->
-            <section id="certificates" aria-label="certificates">
-                <article class="certficates active" data-page="certficates">
-
-                    <header>
-                        <h2 class="h2 article-title">Featured Certificates</h2><br>
-                    </header>
-
-                    <div id="featuredCertificateContainer" class="certificate-grid">
-                    </div>
-
-                    <!-- View All Button BELOW grid -->
-                    <div class="view-all-wrapper">
-                        <a href="certificates.html" class="view-all-btn">
-                            View All Certificates →
-                        </a>
-                    </div>
-
-                    <!-- Fullscreen Zoom View Modal -->
-                    <div id="modal" class="modal hidden" aria-hidden="true">
-                        <div class="modal-header">
-                            <button id="closeModal" aria-label="Close">✕</button>
-                        </div>
-                        <div class="modal-content">
-                            <img id="imageViewer" src="" alt="Certificate" draggable="false">
-                        </div>
-                    </div>
-
-                </article>
-            </section>
-
-            <!-- projects-->
-            <section id="projects" aria-label="Projects">
-                <article class="projects active" data-page="projects">
-                    <header>
-                        <h2 class="h2 article-title">My Projects</h2>
-                    </header><br>
-                    <div class="projects-grid">
-                        <!-- Fitness Tracker -->
-                        <div class="project-card" data-category="web">
-                            <div class="project-image">
-                                <img src="https://www.shutterstock.com/image-photo/hologram-athlete-running-wellness-exercise-600nw-2240460425.jpg"
-                                    alt="Fitness Tracker">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/bharath2957s/Advance-fitness-tracker"
-                                            target="_blank" class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+                            <!-- Programming Languages -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                                <div class="skills-chips-container">
+                                    <div class="skill-chip"><i class="fab fa-python python-icon"></i><span>Python</span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Fitness Tracker</h3>
-                                <p class="project-description">
-                                    A comprehensive fitness tracking application that helps users monitor workouts,
-                                    nutrition, and progress.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">HTML</span>
-                                    <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">node.js</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Blood Management System -->
-                        <div class="project-card" data-category="web">
-                            <div class="project-image">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpKEbyPEs9DohxB2a363p1HkF_-g-p-Fs0fA&s"
-                                    alt="Blood Management System">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/Mayurhr/blood_management_system" target="_blank"
-                                            class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+                                    <div class="skill-chip"><i class="fab fa-java java-icon"></i><span>Java</span></div>
+                                    <div class="skill-chip"><i class="fab fa-js js-icon"></i><span>JavaScript</span>
                                     </div>
+                                    <div class="skill-chip"><i class="fab fa-cuttlefish c-icon"></i><span></span></div>
                                 </div>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Blood Management System</h3>
-                                <p class="project-description">
-                                    A web-based system for managing blood donations, inventory, and requests between
-                                    donors and recipients.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">HTML</span>
-                                    <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">Python</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Digital Vision Companion -->
-                        <div class="project-card" data-category="web">
-                            <div class="project-image">
-                                <img src="https://www.orcam.com/media/AI_Assistive_Technology_for_low_vision.webp"
-                                    alt="Digital Vision Companion">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/bharath2957s/Digital-Vision-Companion.git"
-                                            target="_blank" class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+
+                            <!-- Frontend -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+                                <div class="skills-chips-container">
+                                    <div class="skill-chip"><i class="fab fa-html5 html-icon"></i><span>HTML</span>
+                                    </div>
+                                    <div class="skill-chip"><i class="fab fa-css3-alt css-icon"></i><span>CSS</span>
+                                    </div>
+                                    <div class="skill-chip"><i class="fab fa-js js-icon"></i><span>JavaScript</span>
+                                    </div>
+                                    <div class="skill-chip"><i class="fab fa-react react-icon"></i><span>React.js</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="project-content">
-                                <h3 class="project-title">Digital Vision Companion</h3>
-                                <p class="project-description">
-                                    An AI-powered assistive vision system that uses real-time object detection,
-                                    OCR and voice feedback to help visually impaired users navigate and read text.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">HTML</span>
-                                    <span class="tech-tag">CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">TensorFlow.js</span>
-                                    <span class="tech-tag">COCO-SSD</span>
-                                    <span class="tech-tag">Tesseract.js</span>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- MedScript AI -->
-                        <div class="project-card" data-category="ai">
-                            <div class="project-image">
-                                <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/03/Building-a-Medical-Prescription-Scanner-using-PaliGemma-2-Mix-.webp"
-                                    alt="MedScript AI">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/mazino2957s/Medscript-ai.git" target="_blank"
-                                            class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+                            <!-- Backend -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-server"></i> Backend Development</h3>
+                                <div class="skills-chips-container">
+                                    <div class="skill-chip"><i class="fab fa-node-js node-icon"></i><span>Node.js</span>
+                                    </div>
+                                    <div class="skill-chip"><i
+                                            class="fas fa-server express-icon"></i><span>Express.js</span></div>
+                                    <div class="skill-chip"><i class="fas fa-plug"></i><span>REST API</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="project-content">
-                                <h3 class="project-title">MedScript AI</h3>
-                                <p class="project-description">
-                                    An AI-powered prescription validator that scans medical prescriptions and generates
-                                    intelligent medication analysis.
-                                </p>
-
-                                <div class="project-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">TypeScript</span>
-                                    <span class="tech-tag">Tailwind CSS</span>
-                                    <span class="tech-tag">Gemini AI</span>
-                                    <span class="tech-tag">OCR</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Customer Review Intelligence System-->
-                        <div class="project-card" data-category="ai">
-                            <div class="project-image">
-                                <img src="https://thumbs.dreamstime.com/b/ai-technology-power-artificial-intelligence-using-inputting-instructions-to-create-things-future-change-human-show-generated-368858854.jpg"
-                                    alt="ReviewIQ">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/mazino2957s/Agentic-AI-A-Multi-Agent-Customer-Review-Intelligence-System.git"
-                                            target="_blank" class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+                            <!-- Database -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-database"></i> Databases</h3>
+                                <div class="skills-chips-container">
+                                    <div class="skill-chip"><i
+                                            class="fas fa-database mongodb-icon"></i><span>MongoDB</span></div>
+                                    <div class="skill-chip"><i class="fas fa-database mysql-icon"></i><span>MySQL</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="project-content">
-                                <h3 class="project-title">Customer Review Intelligence System</h3>
-                                <p class="project-description">
-                                    An Agentic AI platform that transforms customer reviews into actionable
-                                    insights using a multi-agent pipeline for sentiment analysis, trend detection
-                                    and business recommendations.
-                                </p>
-
-                                <div class="project-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">LangGraph</span>
-                                    <span class="tech-tag">Ollama</span>
-                                    <span class="tech-tag">LLaMA 3.1</span>
-                                    <span class="tech-tag">Docker</span>
-                                    <span class="tech-tag">AI Agents</span>
+                            <!-- AI & Prompt Engineering -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-brain"></i> AI & Prompt Engineering</h3>
+                                <div class="skills-chips-container">
+                                        <div class="skill-chip">
+                                            <i class="fas fa-comments"></i>
+                                            <span>ChatGPT</span>
+                                        </div>
+                                        <div class="skill-chip">
+                                            <i class="fas fa-brain"></i>
+                                            <span>Claude</span>
+                                        </div>
+                                        <div class="skill-chip">
+                                            <i class="fas fa-star"></i>
+                                            <span>Gemini</span>
+                                        </div>
+                                        <div class="skill-chip">
+                                            <i class="fas fa-search"></i>
+                                            <span>Perplexity</span>
+                                        </div>
+                                        <div class="skill-chip">
+                                            <i class="fas fa-magic"></i>
+                                            <span>Lovable</span>
+                                        </div>
+                                        <div class="skill-chip">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span>More AI Tools</span>
+                                        </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- Developer Tools -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title">
+                                    <i class="fas fa-tools"></i> Developer Tools
+                                </h3>
 
+                                <div class="skills-chips-container">
 
+                                    <div class="skill-chip">
+                                        <i class="fab fa-git-alt"></i>
+                                        <span>Git</span>
+                                    </div>
 
-                        <!-- Service Hub -->
-                        <div class="project-card" data-category="web">
-                            <div class="project-image">
-                                <img src="https://imageio.forbes.com/specials-images/imageserve/66f4fc138d5d16f6f876f5f9/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds"
-                                    alt="Service Hub">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="https://github.com/Mayurhr/serviceHub.git" target="_blank"
-                                            class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-code"></i>
+                                        <span>VS Code</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-server"></i>
+                                        <span>XAMPP</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>IDLE</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-database"></i>
+                                        <span>MySQL Workbench</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="project-content">
-                                <h3 class="project-title">Service Hub</h3>
-                                <p class="project-description">
-                                    A modern platform that connects customers with trusted service providers through
-                                    seamless booking, authentication and service management.
-                                </p>
+                            <!-- AI Technologies -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title">
+                                    <i class="fas fa-microchip"></i> AI Technologies
+                                </h3>
 
-                                <div class="project-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">Node.js</span>
-                                    <span class="tech-tag">Express.js</span>
-                                    <span class="tech-tag">MongoDB</span>
+                                <div class="skills-chips-container">
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-eye"></i>
+                                        <span>OCR</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-camera"></i>
+                                        <span>Computer Vision</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-brain"></i>
+                                        <span>TensorFlow</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-robot"></i>
+                                        <span>Agentic Agents</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-microchip"></i>
+                                        <span>Ollama</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Professional Skills -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title">
+                                    <i class="fas fa-users"></i> Professional Skills
+                                </h3>
+
+                                <div class="skills-chips-container">
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Problem Solving</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-balance-scale"></i>
+                                        <span>Decision Making</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Time Management</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-sync-alt"></i>
+                                        <span>Adaptability</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-calendar-check"></i>
+                                        <span>Event Management</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-users"></i>
+                                        <span>Teamwork</span>
+                                    </div>
+
+                                    <div class="skill-chip">
+                                        <i class="fas fa-user-check"></i>
+                                        <span>Quick Learner</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Languages -->
+                            <div class="skills-category-card">
+                                <h3 class="category-title"><i class="fas fa-language"></i> Languages</h3>
+                                <div class="skills-chips-container">
+                                    <div class="skill-chip"><span>🇮🇳 English</span></div>
+                                    <div class="skill-chip"><span>🇮🇳 Kannada</span></div>
+                                    <div class="skill-chip"><span>🇮🇳 Hindi</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                </section>
+
+                <!-- certificates-->
+                <section id="certificates" data-aos="fade-right">
+                    <section id="certificates" aria-label="certificates">
+                        <article class="certficates active" data-page="certficates">
+
+                            <header>
+                                <h2 class="h2 article-title">Featured Certificates</h2><br>
+                            </header>
+
+                            <div id="featuredCertificateContainer" class="certificate-grid">
+                            </div>
+                            <div class="view-all-wrapper">
+                                <a href="certificates.html" class="view-all-btn">
+                                    View All Certificates →
+                                </a>
+                            </div>
+                            <div id="modal" class="modal hidden" aria-hidden="true">
+                                <div class="modal-header">
+                                    <button id="closeModal" aria-label="Close">✕</button>
+                                </div>
+                                <div class="modal-content">
+                                    <img id="imageViewer" src="" alt="Certificate" draggable="false">
+                                </div>
+                            </div>
+
+                        </article>
+                    </section>
+                </section>
+
+                <!-- projects-->
+                <section id="projects" data-aos="fade-left">
+                    <section id="projects" aria-label="Projects">
+                        <article class="projects active" data-page="projects">
+                            <header>
+                                <h2 class="h2 article-title">My Projects</h2>
+                            </header><br>
+                            <div class="projects-grid">
+                                <!-- Fitness Tracker -->
+                                <div class="project-card" data-category="web">
+                                    <div class="project-image">
+                                        <img src="https://www.shutterstock.com/image-photo/hologram-athlete-running-wellness-exercise-600nw-2240460425.jpg"
+                                            alt="Fitness Tracker">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/bharath2957s/Advance-fitness-tracker"
+                                                    target="_blank" class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Fitness Tracker</h3>
+                                        <p class="project-description">
+                                            A comprehensive fitness tracking application that helps users monitor
+                                            workouts,
+                                            nutrition, and progress.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">node.js</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Blood Management System -->
+                                <div class="project-card" data-category="web">
+                                    <div class="project-image">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpKEbyPEs9DohxB2a363p1HkF_-g-p-Fs0fA&s"
+                                            alt="Blood Management System">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/Mayurhr/blood_management_system"
+                                                    target="_blank" class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Blood Management System</h3>
+                                        <p class="project-description">
+                                            A web-based system for managing blood donations, inventory, and requests
+                                            between
+                                            donors and recipients.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Python</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Digital Vision Companion -->
+                                <div class="project-card" data-category="web">
+                                    <div class="project-image">
+                                        <img src="https://www.orcam.com/media/AI_Assistive_Technology_for_low_vision.webp"
+                                            alt="Digital Vision Companion">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/bharath2957s/Digital-Vision-Companion.git"
+                                                    target="_blank" class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="project-content">
+                                        <h3 class="project-title">Digital Vision Companion</h3>
+                                        <p class="project-description">
+                                            An AI-powered assistive vision system that uses real-time object detection,
+                                            OCR and voice feedback to help visually impaired users navigate and read
+                                            text.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">TensorFlow.js</span>
+                                            <span class="tech-tag">COCO-SSD</span>
+                                            <span class="tech-tag">Tesseract.js</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- MedScript AI -->
+                                <div class="project-card" data-category="ai">
+                                    <div class="project-image">
+                                        <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/03/Building-a-Medical-Prescription-Scanner-using-PaliGemma-2-Mix-.webp"
+                                            alt="MedScript AI">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/mazino2957s/Medscript-ai.git"
+                                                    target="_blank" class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="project-content">
+                                        <h3 class="project-title">MedScript AI</h3>
+                                        <p class="project-description">
+                                            An AI-powered prescription validator that scans medical prescriptions and
+                                            generates
+                                            intelligent medication analysis.
+                                        </p>
+
+                                        <div class="project-tech">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">TypeScript</span>
+                                            <span class="tech-tag">Tailwind CSS</span>
+                                            <span class="tech-tag">Gemini AI</span>
+                                            <span class="tech-tag">OCR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Customer Review Intelligence System-->
+                                <div class="project-card" data-category="ai">
+                                    <div class="project-image">
+                                        <img src="https://thumbs.dreamstime.com/b/ai-technology-power-artificial-intelligence-using-inputting-instructions-to-create-things-future-change-human-show-generated-368858854.jpg"
+                                            alt="ReviewIQ">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/mazino2957s/Agentic-AI-A-Multi-Agent-Customer-Review-Intelligence-System.git"
+                                                    target="_blank" class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="project-content">
+                                        <h3 class="project-title">Customer Review Intelligence System</h3>
+                                        <p class="project-description">
+                                            An Agentic AI platform that transforms customer reviews into actionable
+                                            insights using a multi-agent pipeline for sentiment analysis, trend
+                                            detection
+                                            and business recommendations.
+                                        </p>
+
+                                        <div class="project-tech">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">Python</span>
+                                            <span class="tech-tag">LangGraph</span>
+                                            <span class="tech-tag">Ollama</span>
+                                            <span class="tech-tag">LLaMA 3.1</span>
+                                            <span class="tech-tag">Docker</span>
+                                            <span class="tech-tag">AI Agents</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Hub -->
+                                <div class="project-card" data-category="web">
+                                    <div class="project-image">
+                                        <img src="https://imageio.forbes.com/specials-images/imageserve/66f4fc138d5d16f6f876f5f9/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds"
+                                            alt="Service Hub">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="https://github.com/Mayurhr/serviceHub.git" target="_blank"
+                                                    class="project-link">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="project-content">
+                                        <h3 class="project-title">Service Hub</h3>
+                                        <p class="project-description">
+                                            A modern platform that connects customers with trusted service providers
+                                            through
+                                            seamless booking, authentication and service management.
+                                        </p>
+
+                                        <div class="project-tech">
+                                            <span class="tech-tag">React</span>
+                                            <span class="tech-tag">Node.js</span>
+                                            <span class="tech-tag">Express.js</span>
+                                            <span class="tech-tag">MongoDB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+                <!--Contact section -->
+                <section id="contact" class="contact-text">
+                    <article class="about active" data-page="about">
+                        <header>
+                            <h2 class="h2 article-title">Get in Touch</h2>
+                        </header>
+
+                        <div class="contact-container">
+                            <!-- Message Box -->
+                            <div class="contact-card message-card">
+                                <div class="contact-content">
+                                    <h3>Send Me a Message</h3>
+                                    <form id="contactForm" class="message-form">
+                                        <input type="text" name="name" placeholder="What's your good name?" required>
+                                        <input type="email" name="email" placeholder="What's your email address"
+                                            required>
+                                        <textarea name="message" rows="3" placeholder="How can i help you?"
+                                            required></textarea>
+                                        <button type="submit">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="social-links">
+                                <h3>Connect With Me</h3>
+                                <div class="social-icons">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Honnali+Davanagere+Karnataka+India"
+                                        target="_blank" class="social-icon" id="locationIcon">
+                                        <ion-icon name="location-outline"></ion-icon>
+                                    </a>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mayurhr57@gmail.com"
+                                        target="_blank" class="social-icon" title="Email">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/mayur-hr-2507962ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                                        target="_blank" class="social-icon">
+                                        <ion-icon name="logo-linkedin"></ion-icon>
+                                    </a>
+                                    <a href="https://github.com/Mayurhr" target="_blank" class="social-icon">
+                                        <ion-icon name="logo-github"></ion-icon>
+                                    </a>
+                                    <a href="https://wa.me/919663124725" target="_blank" class="social-icon">
+                                        <ion-icon name="call-outline"></ion-icon>
+                                    </a>
+                                    <a href="https://www.instagram.com/mayur___.hr" target="_blank" class="social-icon">
+                                        <ion-icon name="logo-instagram"></ion-icon>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                </article>
-            </section>
-            <!--Contact section -->
-            <section id="contact" class="contact-text">
-                <article class="about active" data-page="about">
+                    </article>
+                </section>
 
-
-                    <header>
-                        <h2 class="h2 article-title">Get in Touch</h2>
-                    </header>
-
-                    <div class="contact-container">
-                        <!-- Message Box -->
-                        <div class="contact-card message-card">
-                            <div class="contact-content">
-                                <h3>Send Me a Message</h3>
-                                <form id="contactForm" class="message-form">
-                                    <input type="text" name="name" placeholder="What's your good name?" required>
-                                    <input type="email" name="email" placeholder="What's your email address" required>
-                                    <textarea name="message" rows="3" placeholder="How can i help you?"
-                                        required></textarea>
-                                    <button type="submit">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Social Links -->
-                        <div class="social-links">
-                            <h3>Connect With Me</h3>
-                            <div class="social-icons">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Honnali+Davanagere+Karnataka+India"
-                                    target="_blank" class="social-icon" id="locationIcon">
-                                    <ion-icon name="location-outline"></ion-icon>
-                                </a>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mayurhr57@gmail.com"
-                                    target="_blank" class="social-icon" title="Email">
-                                    <ion-icon name="mail-outline"></ion-icon>
-                                </a>
-                                <a href="https://www.linkedin.com/" target="_blank" class="social-icon">
-                                    <ion-icon name="logo-linkedin"></ion-icon>
-                                </a>
-                                <a href="https://github.com/Mayurhr" target="_blank" class="social-icon">
-                                    <ion-icon name="logo-github"></ion-icon>
-                                </a>
-                                <a href="https://wa.me/919663124725" target="_blank" class="social-icon">
-                                    <ion-icon name="call-outline"></ion-icon>
-                                </a>
-                                <a href="https://www.instagram.com/mayur._.200517" target="_blank" class="social-icon">
-                                    <ion-icon name="logo-instagram"></ion-icon>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </article>
-            </section>
     </main>
-
-    <!-- 3D Earth Fullscreen Experience Overlay -->
-    <div id="earthOverlay" class="earth-overlay hidden">
-        <button id="closeEarth" class="close-earth-btn" aria-label="Exit Orbit">✕</button>
-        <div id="earthContainer"></div>
-        <div id="earthLoading" class="earth-loading">
-            <div class="spinner"></div>
-            <p>Entering Orbit...</p>
-        </div>
-
-        <!-- Pinned Location Popup Card -->
-        <div id="pinPopupCard" class="pin-popup-card hidden">
-            <button id="closePopupCard" class="close-popup-card-btn" aria-label="Close card">✕</button>
-            <div class="popup-card-header">
-                <img src="assest/logo/myimg.jpeg" alt="Mayur H R" class="popup-card-img" />
-                <div class="popup-card-title-wrap">
-                    <h4 class="popup-card-name">Mayur H R</h4>
-                    <p class="popup-card-location">Honnali, Karnataka, India</p>
-                </div>
-            </div>
-            <p class="popup-card-desc">
-                Passionate Web Developer focused on creating stunning, responsive, and user-friendly digital products.
-            </p>
-            <div class="popup-card-socials">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mayurhr57@gmail.com" target="_blank"
-                    title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Mayurhr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/919663124725" target="_blank" title="WhatsApp"><i
-                        class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 
