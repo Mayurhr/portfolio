@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom styles specific to the Certificates Subpage */
         #certificates-page-container {
             display: block !important;
         }
+
         .back-btn-container {
             margin-bottom: 20px;
         }
+
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -25,18 +26,20 @@
             font-size: 0.95rem;
             transition: color 0.25s ease, transform 0.25s ease;
         }
+
         .back-btn:hover {
             color: var(--white-1);
             transform: translateX(-4px);
         }
-        /* Make sure the certificate container and pagination display correctly here */
+
         #certificateContainer {
             display: grid !important;
         }
+
         #pagination {
             display: flex !important;
         }
-        /* Modernized certificate subpage layout */
+
         .subpage-header {
             display: flex;
             justify-content: space-between;
@@ -45,20 +48,63 @@
             flex-wrap: wrap;
             gap: 15px;
         }
+
         .subpage-title-wrap {
-            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
+
         .cert-count-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.15);
-            color: var(--orange-yellow-crayola);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            margin-left: 10px;
-            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 10px 18px;
+
+            border-radius: 50px;
+
+            background: linear-gradient(135deg,
+                    rgba(37, 99, 235, .18),
+                    rgba(59, 130, 246, .08));
+
+            border: 1px solid rgba(59, 130, 246, .25);
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 10px 25px rgba(59, 130, 246, .12),
+                inset 0 1px 0 rgba(255, 255, 255, .06);
+
+            transition: .3s ease;
+        }
+
+        .cert-count-badge:hover {
+            transform: translateY(-3px);
+
+            border-color: #60a5fa;
+
+            box-shadow:
+                0 15px 35px rgba(59, 130, 246, .22);
+        }
+
+        .cert-count-badge i {
+            color: #60a5fa;
+            font-size: 18px;
+        }
+
+        .cert-text {
+            color: #d5d5d5;
+            font-weight: 600;
+            font-size: .95rem;
+        }
+
+        .cert-number {
+            color: #60a5fa;
+            font-weight: 800;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -70,7 +116,8 @@
             <div class="sidebar-info">
                 <div class="profile-banner">
                     <div class="banner-image">
-                        <img src="assest/logo/myimg.jpeg" alt="Mayur H R">
+                        <img src="https://drive.google.com/thumbnail?id=1b-KU0haQ1z6gIuQqRtKE0ARiI6Z4lMlt&sz=w2000"
+                            alt="Mayur H R">
                     </div>
                     <div class="banner-content">
                         <h1 class="name">Mayur H R</h1><br>
@@ -94,15 +141,22 @@
 
                 <header class="subpage-header">
                     <div class="subpage-title-wrap">
-                        <h2 class="h2 article-title" style="display: inline-block; margin: 0;">All Certificates</h2>
-                        <span id="certCount" class="cert-count-badge">0</span>
+
+                        <h2 class="h2 article-title">All Certificates</h2>
+
+                        <div class="cert-count-badge">
+                            <i class="fas fa-award"></i>
+                            <span class="cert-text">Certificates</span>
+                            <span id="certCount" class="cert-number">0</span>
+                        </div>
+
                     </div>
                 </header>
 
                 <!-- Combined Filters (Search, Year, Category) -->
                 <div id="filters">
                     <input type="text" id="searchInput" placeholder="Search certificates by title or issuer..." />
-                    
+
                     <select id="yearFilter">
                         <option value="">All Years</option>
                     </select>
