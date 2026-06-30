@@ -1,5 +1,5 @@
 // Config and State
-const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 }; 
+const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 };
 const resumeFileId = "1YSaDrZv8_H2XIdL5ohuMI_Lmj4EoC_2J";
 
 let allCertificates = [];
@@ -33,22 +33,22 @@ function getGoogleDriveImageUrl(driveUrl) {
 function createDriveImage(driveUrl, altText, className) {
   const wrapper = document.createElement('div');
   wrapper.className = 'drive-img-wrapper skeleton';
-  
+
   const img = document.createElement('img');
   img.className = className || '';
   img.alt = altText || 'Certificate';
   img.loading = 'lazy';
-  
+
   const embedUrl = getGoogleDriveImageUrl(driveUrl);
   img.src = embedUrl;
-  
+
   let retries = 0;
   const maxRetries = 2;
-  
+
   img.onload = () => {
     wrapper.classList.remove('skeleton');
   };
-  
+
   img.onerror = () => {
     if (retries < maxRetries) {
       retries++;
@@ -77,7 +77,7 @@ function createDriveImage(driveUrl, altText, className) {
       });
     }
   };
-  
+
   wrapper.appendChild(img);
   return wrapper;
 }
@@ -131,7 +131,7 @@ function renderFeaturedCertificates() {
 
     // Google Drive image with skeleton loader
     const imgWrapper = createDriveImage(cert.driveLink, cert.title, "certificate-thumb");
-    
+
     // Zoom viewer trigger
     imgWrapper.addEventListener("click", () => {
       openModal(getGoogleDriveImageUrl(cert.driveLink), idx, featuredCertificates);
@@ -174,7 +174,7 @@ window.openModal = function (src, index, list) {
   modal.classList.remove("hidden");
   document.body.classList.add("modal-open");
   resetTransform();
-  
+
   if (list && list.length > 0) {
     certsList = list;
     activeIndex = index;
@@ -185,7 +185,7 @@ window.openModal = function (src, index, list) {
 function updateModalControls() {
   let prevBtn = document.getElementById("modalPrev");
   let nextBtn = document.getElementById("modalNext");
-  
+
   if (certsList.length > 1) {
     if (!prevBtn) {
       prevBtn = document.createElement("button");
@@ -388,7 +388,7 @@ document.querySelectorAll('#stickyHeader a, .navbar a').forEach(anchor => {
 });
 
 // Resume modal handlers
-window.openResumeModal = function(e) {
+window.openResumeModal = function (e) {
   e.preventDefault();
   const previewUrl = `https://drive.google.com/file/d/${resumeFileId}/preview`;
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${resumeFileId}`;
@@ -400,7 +400,7 @@ window.openResumeModal = function(e) {
   document.getElementById("resumeModal").style.display = "flex";
 };
 
-window.closeResumeModal = function() {
+window.closeResumeModal = function () {
   document.getElementById("resumeModal").style.display = "none";
   document.getElementById("resumeFrame").src = "";
 };
@@ -438,7 +438,84 @@ if (messageForm) {
 }
 
 AOS.init({
-    duration: 1000,
-    once: true,
-    easing: "ease-out-cubic"
+  duration: 1000,
+  once: true,
+  easing: "ease-out-cubic"
+});
+/*PROJECT VIDEO PLAYER*/
+const projectModal = document.getElementById("projectVideoModal");
+const projectVideo = document.getElementById("projectVideo");
+const projectTitle = document.getElementById("videoProjectTitle");
+const closeProjectVideo = document.querySelector(".close-project-video");
+
+const projectPlayer = new Plyr(projectVideo, {
+
+  controls: [
+    "play",
+    "progress",
+    "current-time",
+    "duration",
+    "settings",
+    "fullscreen"
+  ],
+
+  settings: ["speed"],
+
+  speed: {
+    selected: 1,
+    options: [0.5, 1, 1.25, 1.5, 2]
+  }
+
+});
+
+document.querySelectorAll(".preview-btn").forEach(btn => {
+
+  btn.addEventListener("click", function () {
+
+    projectTitle.textContent = this.dataset.title;
+
+    projectPlayer.source = {
+      type: "video",
+      sources: [
+        {
+          src: this.dataset.video,
+          type: "video/mp4"
+        }
+      ]
+    };
+
+    projectModal.classList.add("active");
+
+    projectPlayer.play();
+
+  });
+
+});
+
+function closePlayer() {
+
+  projectPlayer.pause();
+
+  projectPlayer.stop();
+
+  projectModal.classList.remove("active");
+
+}
+
+closeProjectVideo.addEventListener("click", closePlayer);
+
+projectModal.addEventListener("click", function (e) {
+
+  if (e.target === projectModal) {
+    closePlayer();
+  }
+
+});
+
+document.addEventListener("keydown", function (e) {
+
+  if (e.key === "Escape") {
+    closePlayer();
+  }
+
 });
