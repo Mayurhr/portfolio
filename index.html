@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
 
 </head>
 <button id="backToTop" aria-label="Back to top">
@@ -258,30 +259,30 @@
                             <div class="skills-category-card">
                                 <h3 class="category-title"><i class="fas fa-brain"></i> AI & Prompt Engineering</h3>
                                 <div class="skills-chips-container">
-                                        <div class="skill-chip">
-                                            <i class="fas fa-comments"></i>
-                                            <span>ChatGPT</span>
-                                        </div>
-                                        <div class="skill-chip">
-                                            <i class="fas fa-brain"></i>
-                                            <span>Claude</span>
-                                        </div>
-                                        <div class="skill-chip">
-                                            <i class="fas fa-star"></i>
-                                            <span>Gemini</span>
-                                        </div>
-                                        <div class="skill-chip">
-                                            <i class="fas fa-search"></i>
-                                            <span>Perplexity</span>
-                                        </div>
-                                        <div class="skill-chip">
-                                            <i class="fas fa-magic"></i>
-                                            <span>Lovable</span>
-                                        </div>
-                                        <div class="skill-chip">
-                                            <i class="fas fa-plus-circle"></i>
-                                            <span>More AI Tools</span>
-                                        </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-comments"></i>
+                                        <span>ChatGPT</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-brain"></i>
+                                        <span>Claude</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-star"></i>
+                                        <span>Gemini</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-search"></i>
+                                        <span>Perplexity</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-magic"></i>
+                                        <span>Lovable</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span>More AI Tools</span>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Developer Tools -->
@@ -577,31 +578,70 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Customer Review Intelligence System-->
+                                <!-- Customer Review Intelligence System -->
                                 <div class="project-card" data-category="ai">
+
                                     <div class="project-image">
+
                                         <img src="https://thumbs.dreamstime.com/b/ai-technology-power-artificial-intelligence-using-inputting-instructions-to-create-things-future-change-human-show-generated-368858854.jpg"
-                                            alt="ReviewIQ">
+                                            alt="Customer Review Intelligence System">
+
                                         <div class="project-overlay">
+
                                             <div class="project-links">
+
+                                                <!-- GitHub -->
                                                 <a href="https://github.com/mazino2957s/Agentic-AI-A-Multi-Agent-Customer-Review-Intelligence-System.git"
-                                                    target="_blank" class="project-link">
+                                                    target="_blank" class="project-link" title="GitHub Repository">
                                                     <i class="fab fa-github"></i>
+
                                                 </a>
+
+                                                <!-- Video Preview -->
+                                                <button class="project-link preview-btn"
+                                                    data-title="Customer Review Intelligence System"
+                                                    data-video="assest/videos/demo.mp4">
+
+                                                    <i class="fas fa-play"></i>
+
+                                                </button>
+                                                <div id="projectVideoModal" class="project-video-modal">
+
+                                                    <div class="project-video-box">
+
+                                                        <button class="close-project-video">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+
+                                                        <h3 id="videoProjectTitle"></h3>
+
+                                                        <video id="projectVideo" playsinline>
+                                                        </video>
+
+                                                    </div>
+
+                                                </div>
+
                                             </div>
+
                                         </div>
+
                                     </div>
 
                                     <div class="project-content">
-                                        <h3 class="project-title">Customer Review Intelligence System</h3>
+
+                                        <h3 class="project-title">
+                                            Customer Review Intelligence System
+                                        </h3>
+
                                         <p class="project-description">
                                             An Agentic AI platform that transforms customer reviews into actionable
-                                            insights using a multi-agent pipeline for sentiment analysis, trend
-                                            detection
-                                            and business recommendations.
+                                            insights using a multi-agent pipeline for sentiment analysis,
+                                            trend detection, and business recommendations.
                                         </p>
 
                                         <div class="project-tech">
+
                                             <span class="tech-tag">React</span>
                                             <span class="tech-tag">Python</span>
                                             <span class="tech-tag">LangGraph</span>
@@ -609,8 +649,11 @@
                                             <span class="tech-tag">LLaMA 3.1</span>
                                             <span class="tech-tag">Docker</span>
                                             <span class="tech-tag">AI Agents</span>
+
                                         </div>
+
                                     </div>
+
                                 </div>
                                 <!-- Service Hub -->
                                 <div class="project-card" data-category="web">
@@ -707,7 +750,9 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
