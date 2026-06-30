@@ -2327,3 +2327,141 @@
          right: 10px;
      }
  }
+
+ /* ==============================
+PROJECT VIDEO MODAL
+============================== */
+
+ .project-video-modal {
+
+     position: fixed;
+
+     inset: 0;
+
+     display: flex;
+
+     justify-content: center;
+
+     align-items: center;
+
+     background: rgba(0, 0, 0, .85);
+
+     backdrop-filter: blur(10px);
+
+     opacity: 0;
+
+     visibility: hidden;
+
+     transition: .35s;
+
+     z-index: 99999;
+
+ }
+
+ .project-video-modal.active {
+
+     opacity: 1;
+
+     visibility: visible;
+
+ }
+
+ .project-video-box {
+
+     position: relative;
+
+     width: min(900px, 92vw);
+
+     background: #161616;
+
+     border-radius: 18px;
+
+     padding: 20px;
+
+     box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+
+     animation: popup .35s;
+
+ }
+
+ @keyframes popup {
+
+     from {
+
+         opacity: 0;
+
+         transform: scale(.92);
+
+     }
+
+     to {
+
+         opacity: 1;
+
+         transform: scale(1);
+
+     }
+
+ }
+
+ #videoProjectTitle {
+
+     text-align: center;
+
+     color: white;
+
+     margin-bottom: 15px;
+
+     font-size: 22px;
+
+ }
+
+ .project-video-box video {
+
+     width: 100%;
+
+     border-radius: 14px;
+
+ }
+
+
+
+ .preview-btn {
+
+     border: none;
+
+     cursor: pointer;
+
+ }
+
+ .project-video {
+
+     position: absolute;
+
+     inset: 0;
+
+     width: 100%;
+
+     height: 100%;
+
+     object-fit: cover;
+
+     display: none;
+
+     z-index: 10;
+
+     border-radius: 16px;
+
+ }
+
+ .project-card.playing .project-video {
+
+     display: block;
+
+ }
+
+ .project-card.playing .project-thumbnail {
+
+     display: none;
+
+ }
