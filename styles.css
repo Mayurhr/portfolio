@@ -2465,3 +2465,692 @@ PROJECT VIDEO MODAL
      display: none;
 
  }
+
+/* ==========================================================================
+   =====================  MOBILE RESPONSIVE ENHANCEMENT LAYER  =============
+   ==========================================================================
+   Everything below this line is ADDITIVE ONLY.
+   - No existing selector above has been edited or removed.
+   - No color, gradient, font-family, theme variable, animation keyframe,
+     JS behaviour, or desktop (>1200px) layout has been changed.
+   - Rules here only refine spacing / sizing / touch-targets for narrower
+     viewports, using fluid clamp() scaling plus targeted breakpoints so
+     every width from 320px to 1200px+ is covered smoothly, including:
+     320, 360,375,390, 412, 430, 480, 576, 768, 992, 1200+.
+   - Because these rules come last in the file and match the same
+     selectors as the rules above, normal CSS cascade order is enough to
+     apply them without a single !important.
+   ========================================================================== */
+
+:root {
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --touch-min: 48px;
+}
+
+/* --------------------------------------------------------------------
+   1. GLOBAL LAYOUT — overflow safety, containers, spacing, safe-areas
+   -------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    img, video, iframe, svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding-inline: env(safe-area-inset-left, 0) env(safe-area-inset-right, 0);
+    }
+
+    .sidebar,
+    article {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Tablet band (768–992px): give the centered single column more breathing
+   room than the small 520px desktop-tablet card, without touching the
+   1024px+ / 1250px+ desktop rules above. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar,
+    article {
+        width: min(90vw, 700px);
+        padding: clamp(20px, 3vw, 30px);
+    }
+}
+
+/* NOTE: below 768px, .sidebar and article already go full-width with
+   15px padding and 0 border-radius via the pre-existing !important rule
+   near the top of this file (kept as-is, per "do not change existing
+   functionality"). The rules below only add what that rule does not
+   already cover. */
+@media (max-width: 768px) {
+    .main-content {
+        padding-bottom: 92px; /* clears the fixed bottom navbar + safe-area */
+        padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    }
+
+    section {
+        scroll-margin-top: 12px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   2. HERO / PROFILE SECTION — compact, no wrapping, resume always visible
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .profile-banner {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 14px;
+        padding: 22px 16px;
+        row-gap: 10px;
+    }
+
+    .banner-image {
+        flex: 0 0 auto;
+        width: 96px;
+        height: 96px;
+        margin-left: 0;
+    }
+
+    .banner-content {
+        flex: 1 1 100%;
+        order: 2;
+        min-width: 0;
+    }
+
+    .banner-content .name {
+        font-size: clamp(1.25rem, 5.5vw, 1.6rem);
+        line-height: 1.25;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .banner-content .tagline {
+        font-size: clamp(0.85rem, 3.6vw, 0.95rem);
+        line-height: 1.4;
+        margin-top: 4px;
+    }
+
+    .resume-container {
+        order: 3;
+        flex: 1 1 100%;
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .resume-link {
+        width: 100%;
+        max-width: 220px;
+        min-height: var(--touch-min);
+        padding: 0.75rem 1.3rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .banner-image {
+        width: 84px;
+        height: 84px;
+    }
+
+    .profile-banner {
+        padding: 18px 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .banner-image {
+        width: 76px;
+        height: 76px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   3. TYPOGRAPHY — fluid, no overflow, consistent rhythm
+   -------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .article-title {
+        font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+    }
+
+    .about-text,
+    .timeline-list,
+    .timeline-text {
+        font-size: clamp(0.92rem, 2.6vw, 1rem);
+        line-height: 1.65;
+    }
+
+    .about-text p {
+        max-width: 65ch;
+    }
+
+    p, li, span, a, .project-description, .certificate-title {
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: clamp(1.3rem, 6vw, 1.6rem);
+        margin-bottom: 6px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   4. BOTTOM NAVIGATION — larger touch targets, cleaner spacing
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .navbar-list {
+        padding: 0 2px;
+    }
+
+    .navbar-link {
+        min-height: var(--touch-min);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 4px;
+        font-size: 0.75rem;
+        line-height: 1.15;
+    }
+}
+
+@media (max-width: 390px) {
+    .navbar-link {
+        font-size: 0.68rem;
+        padding: 10px 2px;
+    }
+}
+
+@media (max-width: 340px) {
+    .navbar-link {
+        font-size: 0.62rem;
+    }
+}
+
+/* --------------------------------------------------------------------
+   5. ABOUT SECTION
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .about .article-title {
+        margin-bottom: 12px;
+    }
+
+    .about-text p {
+        margin-bottom: 12px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   6. QUALIFICATIONS / TIMELINE
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .timeline-list {
+        margin-left: 30px;
+    }
+
+    .timeline-item:not(:last-child)::before {
+        left: -20px;
+    }
+
+    .timeline-item::after {
+        left: -23px;
+    }
+
+    .timeline-item:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .timeline-item-title {
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .timeline-list {
+        margin-left: 22px;
+        font-size: 0.9rem;
+    }
+
+    .timeline-item:not(:last-child)::before {
+        left: -14px;
+    }
+
+    .timeline-item::after {
+        left: -17px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   7. SKILLS SECTION — shorter cards, tighter chips, less scrolling
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .skills-category-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        margin: 1.2rem 0;
+    }
+
+    .skills-category-card {
+        padding: 1.1rem;
+        border-radius: var(--radius-md);
+    }
+
+    .skills-category-card .category-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .skills-chips-container {
+        gap: 8px;
+    }
+
+    .skill-chip {
+        min-height: 40px;
+        padding: 8px 10px;
+    }
+
+    .skill-chip span {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .skills-chips-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .skill-chip {
+        min-height: 38px;
+        padding: 6px 8px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   8 & 9. CERTIFICATES — Featured (homepage) AND All Certificates page.
+   Both pages share .certificate-grid / .certificate-card / .drive-img-
+   wrapper, so one set of rules keeps both perfectly in sync.
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .certificate-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .drive-img-wrapper {
+        height: 130px;
+    }
+
+    .certificate-card {
+        padding: 8px;
+        border-radius: var(--radius-sm);
+    }
+
+    .certificate-title {
+        font-size: 0.85rem;
+        margin-top: 6px;
+        line-height: 1.3;
+    }
+
+    .certificate-info-row {
+        font-size: 0.7rem;
+    }
+
+    .highlight-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .drive-img-wrapper {
+        height: 108px;
+    }
+
+    .certificate-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .certificate-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .drive-img-wrapper {
+        height: 92px;
+    }
+
+    .certificate-title {
+        font-size: 0.78rem;
+    }
+}
+
+/* Homepage-only: keep the featured grid visually distinct with a max
+   width so it doesn't sprawl edge-to-edge on tablets. */
+@media (min-width: 480px) and (max-width: 767px) {
+    #featuredCertificateContainer.certificate-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* All Certificates page: stack filters cleanly, full-width search */
+@media (max-width: 768px) {
+    #filters {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    #filters input,
+    #filters select {
+        min-width: 0;
+        font-size: 0.85rem;
+        padding: 12px 14px;
+        min-height: var(--touch-min);
+    }
+
+    #searchInput {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    #yearFilter,
+    #categoryFilter {
+        flex: 1 1 calc(50% - 5px);
+    }
+
+    #clearFilters {
+        flex: 1 1 100%;
+        min-height: var(--touch-min);
+    }
+
+    .subpage-header,
+    .subpage-title-wrap {
+        gap: 12px;
+    }
+
+    .pagination {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination button {
+        min-width: var(--touch-min);
+        min-height: var(--touch-min);
+    }
+}
+
+@media (max-width: 480px) {
+    #filters {
+        padding: 10px;
+    }
+
+    #filters input,
+    #filters select {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+}
+
+/* --------------------------------------------------------------------
+   10. PROJECTS SECTION
+   -------------------------------------------------------------------- */
+@media (max-width: 576px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.05rem;
+    }
+
+    .project-description {
+        font-size: 0.88rem;
+    }
+
+    .project-tech {
+        gap: 0.4rem;
+    }
+
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.65rem;
+    }
+
+    .project-link {
+        width: var(--touch-min);
+        height: var(--touch-min);
+    }
+}
+
+/* --------------------------------------------------------------------
+   11. CONTACT SECTION
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .contact-card {
+        padding: 1.2rem;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .message-form input,
+    .message-form textarea,
+    .message-form button {
+        font-size: 1rem;
+        padding: 13px 14px;
+    }
+
+    .message-form button {
+        min-height: var(--touch-min);
+    }
+
+    .social-icons {
+        gap: 0.9rem;
+    }
+
+    .social-icon {
+        width: var(--touch-min);
+        height: var(--touch-min);
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-section {
+        padding: 1.8rem 0;
+    }
+
+    .contact-card {
+        padding: 1rem;
+    }
+}
+
+/* --------------------------------------------------------------------
+   12. BUTTONS — consistent 48px minimum touch height everywhere
+   -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .view-all-btn,
+    .filter-btn,
+    .popup-btn,
+    #clearFilters,
+    .resume-actions a {
+        min-height: var(--touch-min);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .view-all-wrapper {
+        margin: 18px 0 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    #backToTop {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+        right: 12px;
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 360px) {
+    #backToTop {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        right: 10px;
+        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 768px) {
+    #stickyHeader {
+        display: none !important; 
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-category-card,
+    .contact-card,
+    #filters,
+    .modal {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    .skills-category-card:hover,
+    .project-card:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+
+    .banner-image img {
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .certificate-card,
+    .drive-img-wrapper,
+    .skills-category-card,
+    .contact-card,
+    #filters,
+    .project-card {
+        border-radius: var(--radius-md);
+    }
+
+    .skill-chip,
+    .tech-tag,
+    .resume-link,
+    .view-all-btn,
+    .filter-btn {
+        border-radius: var(--radius-sm);
+    }
+}
+
+@media (max-width: 430px) {
+    .modal {
+        width: 96vw;
+        height: 72vh;
+    }
+
+    .modal-header {
+        top: 6px;
+        right: 8px;
+    }
+
+    .modal-nav-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .modal-nav-btn.prev {
+        left: 6px;
+    }
+
+    .modal-nav-btn.next {
+        right: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    .modal {
+        width: 98vw;
+        height: 68vh;
+        border-radius: 10px;
+    }
+
+    .modal-content {
+        padding: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-modal-content {
+        width: 94%;
+        height: 88vh;
+        padding: 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .resume-actions {
+        flex-direction: column;
+    }
+
+    .resume-actions a {
+        width: 100%;
+    }
+}

@@ -433,14 +433,6 @@
                                     View All Certificates →
                                 </a>
                             </div>
-                            <div id="modal" class="modal hidden" aria-hidden="true">
-                                <div class="modal-header">
-                                    <button id="closeModal" aria-label="Close">✕</button>
-                                </div>
-                                <div class="modal-content">
-                                    <img id="imageViewer" src="" alt="Certificate" draggable="false">
-                                </div>
-                            </div>
 
                         </article>
                     </section>
@@ -744,6 +736,20 @@
                     </article>
                 </section>
 
+                <!-- Fullscreen Certificate Viewer Modal (placed outside any data-aos ancestor
+                     on purpose -- AOS applies a CSS transform to animated ancestors, and any
+                     transform on an ancestor creates a new containing block that breaks
+                     position:fixed on this modal. Keeping it here, at the same nesting level
+                     as certificates.html, makes it behave identically on both pages.) -->
+                <div id="modal" class="modal hidden" aria-hidden="true">
+                    <div class="modal-header">
+                        <button id="closeModal" aria-label="Close">✕</button>
+                    </div>
+                    <div class="modal-content">
+                        <img id="imageViewer" src="" alt="Certificate" draggable="false">
+                    </div>
+                </div>
+
     </main>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -751,6 +757,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="certificate-shared.js"></script>
     <script src="script.js"></script>
 
 </body>
