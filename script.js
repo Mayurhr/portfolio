@@ -202,11 +202,6 @@ if (messageForm) {
   });
 }
 
-AOS.init({
-  duration: 1000,
-  once: true,
-  easing: "ease-out-cubic"
-});
 /*PROJECT VIDEO PLAYER*/
 const projectModal = document.getElementById("projectVideoModal");
 const projectVideo = document.getElementById("projectVideo");
