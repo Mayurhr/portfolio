@@ -900,6 +900,7 @@
      }
 
      .project-link {
+         position: relative;
          width: 45px;
          height: 45px;
          display: flex;
@@ -915,6 +916,30 @@
      .project-link:hover {
          transform: scale(1.1);
          background: var(--white-1, #f8f8f8);
+     }
+
+     .project-link-tooltip {
+         position: absolute;
+         bottom: calc(100% + 0.55rem);
+         left: 50%;
+         padding: 0.3rem 0.5rem;
+         border-radius: 4px;
+         background: rgba(8, 18, 28, 0.94);
+         color: #e8fffc;
+         font-size: 0.68rem;
+         font-weight: 600;
+         line-height: 1;
+         white-space: nowrap;
+         opacity: 0;
+         pointer-events: none;
+         transform: translate(-50%, 4px);
+         transition: opacity 0.2s ease, transform 0.2s ease;
+     }
+
+     .project-link:hover .project-link-tooltip,
+     .project-link:focus-visible .project-link-tooltip {
+         opacity: 1;
+         transform: translate(-50%, 0);
      }
 
      .project-content {
