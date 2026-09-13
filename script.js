@@ -1,6 +1,6 @@
 // Config and State
 const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 };
-const resumeFileId = "1Kpxq2SRslyXLu0lixHBhNHs0Z_msOA5W";
+const resumeFileId = "1Z6FwOn8scdrFS2vJ2wHba8zNFmVU3fdn";
 
 let allCertificates = [];
 let featuredCertificates = [];
@@ -27,36 +27,25 @@ function renderFeaturedCertificates() {
   if (!featuredGrid) return;
   featuredGrid.innerHTML = "";
 
-  featuredCertificates = allCertificates.filter(cert => cert.highlight === true);
+  // Featured certificates, with the richer viewAchievement experience
+  // surfaced first (featured itself stays independent — this only reorders
+  // within the certificates that are already featured)
+  featuredCertificates = allCertificates
+    .filter(cert => cert.featured === true)
+    .sort((a, b) => (b.viewAchievement === true) - (a.viewAchievement === true));
 
-  featuredCertificates.forEach((cert, idx) => {
+  featuredCertificates.forEach((cert) => {
     const card = document.createElement("div");
     card.className = "certificate-card highlighted-certificate";
 
     // Create custom badge
     const badge = document.createElement("div");
     badge.className = "highlight-badge";
-    const category = cert.category?.toLowerCase() || "";
-    if (category.includes("hackathon")) {
-      badge.innerHTML = "🏆 Hackathon";
-    } else if (category.includes("quiz")) {
-      badge.innerHTML = "🧠 Quiz";
-    } else if (category.includes("course")) {
-      badge.innerHTML = "🎓 Course";
-    } else if (category.includes("workshop")) {
-      badge.innerHTML = "📜 Workshop";
-    } else {
-      badge.innerHTML = "🌟 Featured";
-    }
+    badge.innerHTML = getCertificateBadgeLabel(cert.category);
     card.appendChild(badge);
 
     // Google Drive image with skeleton loader
     const imgWrapper = createDriveImage(cert.driveLink, cert.title, "certificate-thumb");
-
-    // Zoom viewer trigger
-    imgWrapper.addEventListener("click", () => {
-      openModal(getGoogleDriveImageUrl(cert.driveLink), idx, featuredCertificates);
-    });
 
     const title = document.createElement("div");
     title.className = "certificate-title";
@@ -72,6 +61,21 @@ function renderFeaturedCertificates() {
     card.appendChild(imgWrapper);
     card.appendChild(title);
     card.appendChild(infoRow);
+
+    // Only show the "View Achievement" hint when this certificate actually
+    // has the richer Achievement experience enabled
+    if (cert.viewAchievement === true) {
+      const viewAchievementHint = document.createElement("div");
+      viewAchievementHint.className = "view-achievement-hint";
+      viewAchievementHint.innerHTML = `View Achievement <i class="fas fa-arrow-right"></i>`;
+      card.appendChild(viewAchievementHint);
+    }
+
+    // Opens the Achievement panel (if viewAchievement: true) or the normal
+    // certificate image viewer (if viewAchievement: false)
+    if (typeof wireCertificateCard === "function") {
+      wireCertificateCard(card, cert);
+    }
 
     featuredGrid.appendChild(card);
   });
@@ -279,3 +283,91 @@ document.addEventListener("keydown", function (e) {
   }
 
 });
+
+// ============================================================================
+// SKILLS SECTION — "Tech Constellation"
+// Scroll-reveal stagger + pointer-driven 3D tilt on each cluster.
+// Tilt is desktop-only (fine pointer + hover capable) and skipped entirely
+// under prefers-reduced-motion; touch/mobile just gets the reveal fade.
+// ============================================================================
+(function () {
+  const skillsSystem = document.querySelector("[data-skills-system]");
+  if (!skillsSystem) return;
+
+  const panels = Array.from(skillsSystem.querySelectorAll(".skills-reveal"));
+  if (!panels.length) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Stagger delay: read the panel's position (data-reveal-i) into a CSS
+  // custom property so the transition-delay in CSS can use it.
+  panels.forEach((panel) => {
+    const i = panel.getAttribute("data-reveal-i");
+    if (i !== null) panel.style.setProperty("--reveal-i", i);
+  });
+
+  // Scroll reveal
+  if (prefersReducedMotion || typeof IntersectionObserver !== "function") {
+    panels.forEach((panel) => panel.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    panels.forEach((panel) => revealObserver.observe(panel));
+  }
+
+  // Pointer tilt + cursor-follow glow — desktop mouse/trackpad only
+  if (!prefersReducedMotion && canHover) {
+    const maxTilt = 7;
+
+    skillsSystem.querySelectorAll("[data-tilt]").forEach((tiltEl) => {
+      let raf = null;
+
+      const handleMove = (e) => {
+        const rect = tiltEl.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        const clampedPx = Math.min(Math.max(px, 0), 1);
+        const clampedPy = Math.min(Math.max(py, 0), 1);
+        const rotY = (clampedPx - 0.5) * maxTilt * 2;
+        const rotX = (0.5 - clampedPy) * maxTilt * 2;
+
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          tiltEl.style.setProperty("--tilt-x", rotX.toFixed(2) + "deg");
+          tiltEl.style.setProperty("--tilt-y", rotY.toFixed(2) + "deg");
+          tiltEl.style.setProperty("--mx", (clampedPx * 100).toFixed(1) + "%");
+          tiltEl.style.setProperty("--my", (clampedPy * 100).toFixed(1) + "%");
+        });
+      };
+
+      tiltEl.addEventListener("pointerenter", (e) => {
+        if (e.pointerType && e.pointerType !== "mouse") return;
+        tiltEl.classList.add("is-tracking");
+      });
+
+      tiltEl.addEventListener("pointermove", (e) => {
+        if (e.pointerType && e.pointerType !== "mouse") return;
+        handleMove(e);
+      });
+
+      tiltEl.addEventListener("pointerleave", (e) => {
+        if (e.pointerType && e.pointerType !== "mouse") return;
+        tiltEl.classList.remove("is-tracking");
+        tiltEl.style.setProperty("--tilt-x", "0deg");
+        tiltEl.style.setProperty("--tilt-y", "0deg");
+        tiltEl.style.setProperty("--mx", "50%");
+        tiltEl.style.setProperty("--my", "35%");
+      });
+    });
+  }
+})();

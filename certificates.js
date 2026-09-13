@@ -117,40 +117,30 @@ function renderCertificates() {
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
   
-  // Sort highlighted certificates to show up first in listings
-  const sorted = [...filteredCertificates].sort((a, b) => (b.highlight === true) - (a.highlight === true));
+  // Certificates with the richer viewAchievement experience come first
+  // (within whatever search/filter has already narrowed the list down to),
+  // then featured certificates, preserving original order otherwise.
+  const sorted = [...filteredCertificates].sort((a, b) => {
+    const byAchievement = (b.viewAchievement === true) - (a.viewAchievement === true);
+    if (byAchievement !== 0) return byAchievement;
+    return (b.featured === true) - (a.featured === true);
+  });
   const currentCertificates = sorted.slice(start, end);
 
   currentCertificates.forEach((cert, index) => {
     const card = document.createElement("div");
     card.className = "certificate-card";
-    
-    if (cert.highlight) {
+
+    if (cert.featured) {
       card.classList.add("highlighted-certificate");
-      
+
       const badge = document.createElement("div");
       badge.className = "highlight-badge";
-      const category = cert.category?.toLowerCase() || "";
-      if (category.includes("hackathon")) {
-        badge.innerHTML = "🏆 Hackathon";
-      } else if (category.includes("quiz")) {
-        badge.innerHTML = "🧠 Quiz";
-      } else if (category.includes("course")) {
-        badge.innerHTML = "🎓 Course";
-      } else if (category.includes("workshop")) {
-        badge.innerHTML = "📜 Workshop";
-      } else {
-        badge.innerHTML = "🌟 Featured";
-      }
+      badge.innerHTML = getCertificateBadgeLabel(cert.category);
       card.appendChild(badge);
     }
 
     const imgWrapper = createDriveImage(cert.driveLink, cert.title, "certificate-thumb");
-    
-    // Zoom viewer trigger
-    imgWrapper.addEventListener("click", () => {
-      openModal(getGoogleDriveImageUrl(cert.driveLink), start + index, sorted);
-    });
 
     const title = document.createElement("div");
     title.className = "certificate-title";
@@ -166,6 +156,21 @@ function renderCertificates() {
     card.appendChild(imgWrapper);
     card.appendChild(title);
     card.appendChild(infoRow);
+
+    // Only show the "View Achievement" hint when this certificate actually
+    // has the richer Achievement experience enabled — independent of featured
+    if (cert.viewAchievement === true) {
+      const viewAchievementHint = document.createElement("div");
+      viewAchievementHint.className = "view-achievement-hint";
+      viewAchievementHint.innerHTML = `View Achievement <i class="fas fa-arrow-right"></i>`;
+      card.appendChild(viewAchievementHint);
+    }
+
+    // Opens the Achievement panel (if viewAchievement: true) or the normal
+    // certificate image viewer (if viewAchievement: false)
+    if (typeof wireCertificateCard === "function") {
+      wireCertificateCard(card, cert);
+    }
 
     grid.appendChild(card);
   });
