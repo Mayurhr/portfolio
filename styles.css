@@ -2963,10 +2963,90 @@ PROJECT VIDEO MODAL
 }
 
 /* --------------------------------------------------------------------
-   7. SKILLS SECTION — see the dedicated Skills CSS block earlier in this
-   file (.skills-system, .skills-cluster, .skill-tag) for the full design,
-   including its own responsive breakpoints. Nothing else needed here.
+   7. SKILLS SECTION — mobile category arrangement
    -------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    #skills .skills-system {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        align-items: stretch;
+        min-width: 0;
+    }
+
+    #skills .skills-core,
+    #skills .skills-core-branches,
+    #skills .skills-satellites,
+    #skills .skills-satellite-grid {
+        display: contents;
+    }
+
+    #skills .skills-cluster {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        padding: 12px 10px;
+        box-sizing: border-box;
+    }
+
+    #skills .skills-core-branches .skills-cluster:first-child {
+        grid-column: 1 / -1;
+    }
+
+    #skills .skills-cluster-label {
+        min-width: 0;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    #skills .skills-chip-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 7px;
+        min-width: 0;
+    }
+
+    #skills .skill-tag {
+        width: 100%;
+        min-width: 0;
+        min-height: 34px;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 6px 7px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+}
+
+@media (min-width: 380px) and (max-width: 768px) {
+    #skills .skills-chip-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #skills .skills-core-branches .skills-cluster:nth-child(2) .skills-chip-row,
+    #skills .skills-core-branches .skills-cluster:nth-child(3) .skills-chip-row,
+    #skills .skills-satellite-grid .skills-cluster:nth-child(1) .skills-chip-row,
+    #skills .skills-satellite-grid .skills-cluster:nth-child(2) .skills-chip-row,
+    #skills .skills-satellite-grid .skills-cluster:nth-child(3) .skills-chip-row,
+    #skills .skills-satellite-grid .skills-cluster:nth-child(4) .skills-chip-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 379px) {
+    #skills .skills-system {
+        gap: 8px;
+    }
+
+    #skills .skills-cluster {
+        padding-inline: 8px;
+    }
+
+    #skills .skill-tag {
+        font-size: .72rem;
+    }
+}
 
 /* --------------------------------------------------------------------
    8 & 9. CERTIFICATES — Featured (homepage) AND All Certificates page.
@@ -3163,13 +3243,56 @@ PROJECT VIDEO MODAL
         min-height: var(--touch-min);
     }
 
-    .social-icons {
-        gap: 0.9rem;
+    #contact .social-links .social-icons {
+        width: 100%;
+        gap: 0.5rem;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
-    .social-icon {
-        width: var(--touch-min);
-        height: var(--touch-min);
+    #contact .social-links .social-icon {
+        flex: 0 0 38px !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        box-sizing: border-box !important;
+        padding: 0;
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .social-links,
+    #contact .social-links .social-icons {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    #contact .social-links .social-icons {
+        gap: 5px !important;
+    }
+
+    #contact .social-links .social-icon {
+        flex-basis: 34px !important;
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #contact .social-links .social-icons {
+        gap: 4px !important;
+    }
+
+    #contact .social-links .social-icon {
+        flex-basis: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.9rem !important;
     }
 }
 
@@ -3942,7 +4065,7 @@ PROJECT VIDEO MODAL
 
 @media (max-width: 600px) {
     .achievement-panel {
-        width: 100vw;
+        width: 100%;
         height: 100dvh;
         max-height: none;
         border-radius: 0;
@@ -3992,7 +4115,130 @@ PROJECT VIDEO MODAL
     }
 }
 
+/* ---- Narrow-screen layout safeguards ----------------------------------- */
+
+@media (max-width: 768px) {
+    .skills-system,
+    .skills-core,
+    .skills-core-branches,
+    .skills-satellites,
+    .skills-satellite-grid,
+    .skills-cluster,
+    .skills-chip-row,
+    .skill-tag,
+    .achievement-panel,
+    .achievement-panel-body,
+    .achievement-media,
+    .achievement-info,
+    .achievement-section,
+    .achievement-links {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .skills-core-branches,
+    .skills-satellite-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .skills-cluster {
+        padding: 12px 10px;
+    }
+
+    .skills-cluster-label {
+        gap: 6px;
+        font-size: .88rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .skills-chip-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .skill-tag {
+        width: 100%;
+        min-height: 34px;
+        justify-content: center;
+        padding: 6px 7px;
+        font-size: .72rem;
+        line-height: 1.25;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .skill-tag i {
+        width: .95em;
+        font-size: .82rem;
+    }
+
+    .achievement-panel-body {
+        display: block;
+        overflow-x: hidden;
+    }
+
+    .achievement-media,
+    .achievement-info {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .achievement-cert-frame,
+    .achievement-cert-img-wrapper,
+    .achievement-cert-img-wrapper img.achievement-cert-img,
+    .achievement-gallery-marquee {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .achievement-title,
+    .achievement-text,
+    .achievement-section-title,
+    .achievement-meta,
+    .achievement-link-btn {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .achievement-text {
+        text-align: left;
+        hyphens: auto;
+    }
+
+    .achievement-link-btn {
+        min-width: 0;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+    .skills-chip-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 360px) {
+    .skills-core-branches,
+    .skills-satellite-grid {
+        gap: 8px;
+    }
+
+    .skills-cluster {
+        padding-inline: 8px;
+    }
+
+    .skill-tag {
+        padding-inline: 5px;
+        font-size: .69rem;
+    }
 }
 
 /* ---- Hint (click to enlarge certificate) ---------------------------------- */
