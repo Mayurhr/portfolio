@@ -1,13 +1,3 @@
-// ============================================================================
-// CERTIFICATE / ACHIEVEMENT DETAIL VIEW
-// Shared by index.html (Featured Certificates) and certificates.html (All
-// Certificates). Renders the case-study style Achievement panel for
-// certificates that have viewAchievement: true.
-//
-// Rule followed throughout: NEVER invent data. A section only renders when
-// the corresponding field exists and is non-empty on the certificate object.
-// ============================================================================
-
 (function () {
   const achievementModal = document.getElementById("achievementModal");
   const achievementBody = document.getElementById("achievementBody");
@@ -52,44 +42,42 @@
     `;
   }
 
-  // --------------------------------------------------------------------
-  // Experience text — supports a **bold** lead phrase (e.g. an award or
-  // headline) written directly in the JSON `experience` string. Everything
-  // else stays normal weight. No separate "result" field — the highlight
-  // is part of the experience text itself, just marked with **double
-  // asterisks** the way you'd write it in Markdown.
-  // --------------------------------------------------------------------
   function renderExperienceHTML(text) {
     const escaped = escapeHTML(text);
     return escaped.replace(/\*\*(.+?)\*\*/g, '<strong class="achievement-highlight">$1</strong>');
   }
 
-  // --------------------------------------------------------------------
-  // Proof / Evidence — GitHub, Offer Letter, Watch Demo
-  // Only the buttons for fields that are actually present are shown.
-  // --------------------------------------------------------------------
   function proofHTML(achievement) {
     const buttons = [];
 
     if (isNonEmptyString(achievement.github)) {
       buttons.push(`
-        <a class="achievement-link-btn" href="${escapeHTML(achievement.github)}" target="_blank" rel="noopener noreferrer">
+        <a class="achievement-link-btn achievement-proof-btn" href="${escapeHTML(achievement.github)}" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+      `);
+    }
+
+    if (isNonEmptyString(achievement.presentation)) {
+      const presentationUrl = achievement.presentation;
+      buttons.push(`
+        <a class="achievement-link-btn achievement-proof-btn achievement-presentation-btn" href="${escapeHTML(presentationUrl)}" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-file-pdf"></i><span>Presentation</span>
         </a>
       `);
     }
 
     if (isNonEmptyString(achievement.offerLetter)) {
       buttons.push(`
-        <a class="achievement-link-btn" href="${escapeHTML(achievement.offerLetter)}" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-file-signature"></i><span>View Offer Letter</span>
+        <a class="achievement-link-btn achievement-proof-btn" href="${escapeHTML(achievement.offerLetter)}" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-file-signature"></i><span>Offer Letter</span>
         </a>
       `);
     }
 
     if (isNonEmptyString(achievement.demoVideo)) {
       buttons.push(`
-        <button type="button" class="achievement-link-btn achievement-demo-btn" data-demo-video="${escapeHTML(achievement.demoVideo)}">
+        <button type="button" class="achievement-link-btn achievement-proof-btn achievement-demo-btn" data-demo-video="${escapeHTML(achievement.demoVideo)}">
           <i class="fas fa-play"></i><span>Watch Demo</span>
         </button>
       `);
@@ -99,10 +87,23 @@
     return `<div class="achievement-links">${buttons.join("")}</div>`;
   }
 
-  // --------------------------------------------------------------------
-  // Event / Project Moments gallery — a slow, continuously auto-scrolling
-  // strip. The photo set is rendered twice so the CSS animation loops.
-  // --------------------------------------------------------------------
+  function buildCertificateGalleryList(cert) {
+    const sources = [];
+    if (isNonEmptyString(cert?.driveLink)) {
+      sources.push(getGoogleDriveImageUrl(cert.driveLink));
+    }
+
+    if (Array.isArray(cert?.achievement?.eventPhotos)) {
+      cert.achievement.eventPhotos
+        .filter(Boolean)
+        .forEach((photo) => {
+          sources.push(getGoogleDriveImageUrl(photo));
+        });
+    }
+
+    return sources;
+  }
+
   function galleryHTML(eventPhotos) {
     const renderSet = (hidden) => eventPhotos.map((driveUrl, i) => `
       <div class="achievement-gallery-photo" data-gallery-src="${escapeHTML(driveUrl)}"${hidden ? ' aria-hidden="true" tabindex="-1"' : ` tabindex="0" role="button" aria-label="Preview event photo ${i + 1}"`}></div>
@@ -183,10 +184,43 @@
       imgWrapper.classList.add("achievement-cert-img-wrapper");
       frame.appendChild(imgWrapper);
 
+      const galleryItems = buildCertificateGalleryList(cert);
+      const expandBtn = document.createElement("button");
+      expandBtn.type = "button";
+      expandBtn.className = "achievement-enlarge-btn";
+      expandBtn.setAttribute("aria-label", `Expand ${cert.title}`);
+      expandBtn.innerHTML = '<i class="fas fa-expand"></i>';
+      expandBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (typeof window.openQuickImageOverlay === "function") {
+          const items = buildCertificateGalleryList(cert);
+          if (items.length > 0) {
+            window.openQuickImageOverlay(items, "click", 0);
+          } else {
+            window.openQuickImageOverlay(getGoogleDriveImageUrl(cert.driveLink), "click");
+          }
+        }
+      });
+      frame.appendChild(expandBtn);
+
       // Click to enlarge — opens above the Achievement panel with its own
       // visible × Close button. Closing it never touches the panel behind.
-      if (typeof window.wireClickToEnlarge === "function") {
-        window.wireClickToEnlarge(imgWrapper, getGoogleDriveImageUrl(cert.driveLink));
+      const openGallery = () => {
+        const items = buildCertificateGalleryList(cert);
+        if (items.length > 0) {
+          window.openQuickImageOverlay(items, "click", 0);
+        } else {
+          window.openQuickImageOverlay(getGoogleDriveImageUrl(cert.driveLink), "click");
+        }
+      };
+
+      if (cert.title === "NEURAL HACK") {
+        imgWrapper.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openGallery();
+        });
+      } else if (typeof window.wireClickToEnlarge === "function") {
+        window.wireClickToEnlarge(imgWrapper, getGoogleDriveImageUrl(cert.driveLink), galleryItems, 0);
       }
     }
 
@@ -299,16 +333,7 @@
     window.closeCertificateDetail();
   });
 
-  // --------------------------------------------------------------------
-  // Shared card click/keyboard wiring used by script.js and certificates.js
-  //
-  // featured  -> controls whether the card shows up in Featured Certificates
-  //              (handled entirely by script.js / certificates.js filtering)
-  // viewAchievement -> controls what clicking THIS card does:
-  //   true  -> open the rich Achievement detail panel
-  //   false -> open the normal certificate image viewer directly (no
-  //            achievement panel at all, so there's nothing nested)
-  // --------------------------------------------------------------------
+
   window.wireCertificateCard = function (card, cert) {
     card.setAttribute("tabindex", "0");
     card.setAttribute("role", "button");

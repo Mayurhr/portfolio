@@ -1,6 +1,6 @@
 // Config and State
 const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 };
-const resumeFileId = "1Z6FwOn8scdrFS2vJ2wHba8zNFmVU3fdn";
+const resumeFileId = "1mQIj4WNOSE7aTStKP8wON80vGggYgZeY";
 
 let allCertificates = [];
 let featuredCertificates = [];
@@ -17,10 +17,6 @@ function loadScript(src) {
     document.head.appendChild(script);
   });
 }
-
-// ==========================================
-// 1. HOMEPAGE CERTIFICATE RENDERER
-// ==========================================
 
 function renderFeaturedCertificates() {
   const featuredGrid = document.getElementById("featuredCertificateContainer");

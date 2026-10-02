@@ -1,6 +1,3 @@
-// --------------------------------------------------------------------------
-// 0. SHARED BADGE LABEL (used by script.js, certificates.js, certificate-detail.js)
-// --------------------------------------------------------------------------
 function getCertificateBadgeLabel(category) {
   const cat = (category || "").toLowerCase();
   if (cat.includes("hackathon")) return "🏆 Hackathon";
@@ -284,8 +281,10 @@ function handleSwipe() {
 // Always renders above every other modal on the page.
 // ============================================================================
 (function () {
-  let overlay, overlayImg, overlayCloseBtn;
+  let overlay, overlayImg, overlayCanvas, overlayCloseBtn, overlayPrevBtn, overlayNextBtn, overlayCounter;
   let overlayMode = null; // "hold" | "click" | null
+  let overlayItems = [];
+  let overlayIndex = 0;
 
   function ensureOverlay() {
     if (overlay) return;
@@ -304,13 +303,46 @@ function handleSwipe() {
       window.closeQuickImageOverlay();
     });
 
+    overlayPrevBtn = document.createElement("button");
+    overlayPrevBtn.type = "button";
+    overlayPrevBtn.className = "quick-image-nav quick-image-prev hidden";
+    overlayPrevBtn.setAttribute("aria-label", "Previous image");
+    overlayPrevBtn.innerHTML = "&#8249;";
+    overlayPrevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.navigateQuickImageOverlay(-1);
+    });
+
+    overlayNextBtn = document.createElement("button");
+    overlayNextBtn.type = "button";
+    overlayNextBtn.className = "quick-image-nav quick-image-next hidden";
+    overlayNextBtn.setAttribute("aria-label", "Next image");
+    overlayNextBtn.innerHTML = "&#8250;";
+    overlayNextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.navigateQuickImageOverlay(1);
+    });
+
+    overlayCounter = document.createElement("div");
+    overlayCounter.className = "quick-image-counter hidden";
+    overlayCounter.setAttribute("aria-live", "polite");
+
     overlayImg = document.createElement("img");
     overlayImg.id = "quickImageOverlayImg";
     overlayImg.alt = "Enlarged certificate";
     overlayImg.draggable = false;
 
+    overlayCanvas = document.createElement("canvas");
+    overlayCanvas.id = "quickImageOverlayCanvas";
+    overlayCanvas.className = "quick-image-canvas hidden";
+    overlayCanvas.setAttribute("aria-label", "Presentation slide preview");
+
     overlay.appendChild(overlayCloseBtn);
+    overlay.appendChild(overlayPrevBtn);
+    overlay.appendChild(overlayNextBtn);
+    overlay.appendChild(overlayCounter);
     overlay.appendChild(overlayImg);
+    overlay.appendChild(overlayCanvas);
     document.body.appendChild(overlay);
 
     // Backdrop click only closes in "click" mode
@@ -325,13 +357,88 @@ function handleSwipe() {
     overlayImg.addEventListener("dragstart", (e) => e.preventDefault());
   }
 
-  window.openQuickImageOverlay = function (src, mode) {
+  function formatOverlayCounter() {
+    if (!overlayItems.length || overlayItems.length <= 1) {
+      overlayCounter.textContent = "";
+      return;
+    }
+    overlayCounter.textContent = `${overlayIndex + 1} / ${overlayItems.length}`;
+  }
+
+  function setGalleryState(items, index) {
+    overlayItems = Array.isArray(items) ? items.filter(Boolean) : [];
+    overlayIndex = Math.max(0, Math.min(index || 0, Math.max(0, overlayItems.length - 1)));
+
+    if (overlayItems.length > 1) {
+      overlayPrevBtn.classList.remove("hidden");
+      overlayNextBtn.classList.remove("hidden");
+      overlayCounter.classList.remove("hidden");
+      formatOverlayCounter();
+    } else {
+      overlayPrevBtn.classList.add("hidden");
+      overlayNextBtn.classList.add("hidden");
+      overlayCounter.classList.add("hidden");
+      overlayCounter.textContent = "";
+    }
+  }
+
+  function updateOverlayImage() {
+    const item = overlayItems[overlayIndex];
+    if (!item) {
+      overlayImg.src = "";
+      overlayImg.alt = "Enlarged certificate";
+      overlayCanvas.classList.add("hidden");
+      overlayImg.classList.remove("hidden");
+      overlayCounter.textContent = "";
+      return;
+    }
+
+    overlayCanvas.classList.add("hidden");
+    overlayImg.classList.remove("hidden");
+    overlayImg.src = typeof item === "string" ? item : item.src;
+    overlayImg.alt = item.alt || "Enlarged certificate";
+    formatOverlayCounter();
+  }
+
+  window.openQuickImageOverlay = function (srcOrItems, mode, index) {
     ensureOverlay();
     overlayMode = mode === "click" ? "click" : "hold";
-    overlayImg.src = src;
+
+    if (Array.isArray(srcOrItems)) {
+      setGalleryState(srcOrItems, index || 0);
+      overlay.classList.remove("hidden");
+      overlay.setAttribute("aria-hidden", "false");
+      overlayCloseBtn.classList.toggle("hidden", overlayMode !== "click");
+      updateOverlayImage();
+      return;
+    }
+
+    overlayItems = [];
+    overlayIndex = 0;
+    overlayPrevBtn.classList.add("hidden");
+    overlayNextBtn.classList.add("hidden");
+    overlayCounter.classList.add("hidden");
+    overlayCounter.textContent = "";
+    overlayCanvas.classList.add("hidden");
+    overlayImg.classList.remove("hidden");
+    overlayImg.src = srcOrItems || "";
+    overlayImg.alt = "Enlarged certificate";
     overlay.classList.remove("hidden");
     overlay.setAttribute("aria-hidden", "false");
     overlayCloseBtn.classList.toggle("hidden", overlayMode !== "click");
+  };
+
+  window.navigateQuickImageOverlay = function (direction) {
+    if (!overlayItems.length) return;
+    overlayIndex = (overlayIndex + direction + overlayItems.length) % overlayItems.length;
+    updateOverlayImage();
+  };
+
+  window.setQuickImageGallery = function (items, index) {
+    if (!Array.isArray(items) || !items.length) return;
+    ensureOverlay();
+    setGalleryState(items, index || 0);
+    updateOverlayImage();
   };
 
   window.closeQuickImageOverlay = function () {
@@ -339,7 +446,12 @@ function handleSwipe() {
     overlay.classList.add("hidden");
     overlay.setAttribute("aria-hidden", "true");
     overlayImg.src = "";
+    overlayImg.classList.remove("hidden");
+    overlayCanvas.classList.add("hidden");
     overlayMode = null;
+    overlayItems = [];
+    overlayIndex = 0;
+    overlayCounter.textContent = "";
   };
 
   window.isQuickImageOverlayOpen = function () {
@@ -349,20 +461,53 @@ function handleSwipe() {
   // Escape cancels the overlay first, and only the overlay — it must not
   // also close whatever modal is open behind it.
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && window.isQuickImageOverlayOpen()) {
-      window.closeQuickImageOverlay();
-      e.stopImmediatePropagation();
+    if (window.isQuickImageOverlayOpen()) {
+      if (e.key === "Escape") {
+        window.closeQuickImageOverlay();
+        e.stopImmediatePropagation();
+        return;
+      }
+
+      if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && overlayItems.length > 1) {
+        window.navigateQuickImageOverlay(e.key === "ArrowRight" ? 1 : -1);
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
     }
   }, true);
 
   // Click-to-enlarge for gallery photos (persistent overlay, explicit close)
-  window.wireClickToEnlarge = function (el, src) {
+  window.wireClickToEnlarge = function (el, src, galleryItems, startIndex) {
     if (!el) return;
     el.addEventListener("click", (e) => {
       e.stopPropagation();
-      window.openQuickImageOverlay(src, "click");
+      if (Array.isArray(galleryItems) && galleryItems.length > 0) {
+        window.openQuickImageOverlay(galleryItems, "click", startIndex || 0);
+      } else {
+        window.openQuickImageOverlay(src, "click");
+      }
     });
   };
+
+  window.getGoogleDriveFileId = function (url) {
+    if (!url) return "";
+    const match = url.match(/(?:\/d\/|[?&]id=)([a-zA-Z0-9_-]{10,})/);
+    return match ? match[1] : "";
+  };
+
+  window.getGoogleDrivePdfUrl = function (url) {
+    if (!url) return "";
+    const fileId = window.getGoogleDriveFileId(url);
+    if (!fileId) return url;
+    return `https://drive.google.com/uc?export=view&id=${fileId}`;
+  };
+
+  window.getPresentationFallbackOpenUrl = function (url) {
+    if (!url) return "";
+    const direct = window.getGoogleDrivePdfUrl(url);
+    return direct || url;
+  };
+
 })();
 
 // ============================================================================
