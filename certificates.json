@@ -319,7 +319,7 @@
     "issuer": "EXCELR",
     "year": "2025",
     "category": "Webinars",
-    "featured": true,
+    "featured": false,
     "viewAchievement": false,
     "driveLink": "https://drive.google.com/file/d/1ouIPRurjOVXZ2l9S4j95TYU84s4-8d90/view?usp=drive_link"
   },
@@ -368,10 +368,7 @@
       "https://drive.google.com/file/d/1L7XXQSYNw4jIj744f1Padtj6zfdongg1/view?usp=drive_link",
       "https://drive.google.com/file/d/1jzjNBSNL5lJupeDdP08a2tBjAV_ySF_G/view?usp=drive_link"
     ],
-    "project": {
-      "name": "Advance Fitness Tracker",
-      "github": "https://github.com/bharath2957s/Advance-fitness-tracker"
-    }
+    "github": "https://github.com/bharath2957s/Advance-fitness-tracker"
   }
 },
   {
@@ -393,6 +390,25 @@
       "github": "https://github.com/bharath2957s/Medscript-ai.git"
     }
   },
+  {
+  "title": "HACK MALENADU 2026",
+  "issuer": "PESITM, Shivamogga",
+  "year": "2026",
+  "category": "Hackathon",
+  "featured": true,
+  "viewAchievement": true,
+  "driveLink": "https://drive.google.com/file/d/1xRvBhu5fKmPwu7hxyh5sWVSHq_GxPvur/view?usp=drive_link",
+  "achievement": {
+    "experience": "**Hack Malenadu 2026 — ReviewIQ**. Hack Malenadu 2026 was a large-scale, student-focused, industry-driven hackathon presented by PES Institute of Technology and Management, Shivamogga and powered by TestMySkills and HackCulture. The event recorded 2,356 registrations, 729 teams and 415 idea submissions with 150 teams advancing to the final floor. The hackathon also brought together 12 industry mentors, 3 IT industry founders as jury members, 4 international expert sessions and 3 MoUs with IT industries creating an environment focused on innovation, industry exposure and real-world problem solving. As part of the Consumer & Retail track. I worked on **ReviewIQ — Agentic AI A Multi-Agent Customer Review Intelligence System**, a platform designed to transform customer reviews into actionable business insights. The solution uses a multi-agent LangGraph pipeline for preprocessing, deduplication, emoji analysis, sentiment analysis, trend detection, cross-product comparison, recommendations and report generation. The project was developed using React, Vite, Tailwind CSS, Framer Motion, Recharts, FastAPI, Python, LangGraph and Ollama with LLaMA 3.1 8B with AI processing running locally. Working on the solution in a high-pressure hackathon environment strengthened my skills in AI engineering, rapid development, problem solving, teamwork and building practical solutions for real-world business problems.",
+    "eventPhotos": [
+      "https://drive.google.com/file/d/127XY1mev3XCBF4GLLG_Ne_bIGHBVHfVd/view?usp=drive_link",
+      "https://drive.google.com/file/d/1sNES0MxUCWhlopsZmZiNT2lBs6gObSTz/view?usp=drive_link",
+      "https://drive.google.com/file/d/17zg5md-XZNP3VnB-VZZBwYSg06O6ORBd/view?usp=drive_link"
+    ],
+    "github": "https://github.com/bharath2957s/Agentic-AI-A-Multi-Agent-Customer-Review-Intelligence-System",
+    "demoVideo": "assest/videos/demo.mp4"
+  }
+},
   {
   "title": "PYTHON PROGRAMMING BY VEDA TECHNOLOGY",
   "issuer": "Veda Technology",
