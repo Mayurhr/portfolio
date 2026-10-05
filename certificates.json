@@ -432,6 +432,7 @@
   "category": "Hackathon",
   "featured": true,
   "viewAchievement": true,
+      "driveLink": "https://drive.google.com/file/d/17a7uV8EsuxksK4YFyiGai3QJMm9nVWVY/view?usp=drivesdk",
   "achievement": {
     "experience": "**NEURAL HACK **. Participated in a 5-hour hackathon where I worked with my team on VaultX — Secure Zero-Trust File Sharing Platform, based on the problem statement **Secure File Sharing with Expiring Links**. We developed a secure file-sharing platform that gives users greater control over shared files through authentication, time-based expiry, download limits, access control, signed access tokens, file encryption and activity tracking. The project was built using React, Vite, TypeScript, Tailwind CSS, Framer Motion, Node.js, FastAPI, REST APIs and PostgreSQL with security mechanisms including AES-256-GCM encryption, HMAC-SHA256, Argon2id/PBKDF2, cryptographically secure tokens, atomic download counters and audit/risk monitoring. Working within a 5-hour time constraint gave me valuable experience in rapid development, security-focused problem solving, teamwork and building a practical full-stack solution under pressure.",
     "eventPhotos": [
