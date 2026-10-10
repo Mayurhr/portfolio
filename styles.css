@@ -4550,3 +4550,32 @@ PROJECT VIDEO MODAL
          padding: 12px;
      }
  }
+
+/* LeetCode brand styling for the Connect With Me section */
+#contact .social-icons .leetcode-social-icon {
+    color: #ffa116;
+    background: linear-gradient(145deg, rgba(255, 161, 22, 0.13), rgba(255, 255, 255, 0.045));
+    border-color: rgba(255, 161, 22, 0.34);
+}
+#contact .social-icons .leetcode-mark {
+    width: 25px;
+    height: 25px;
+    overflow: visible;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.8;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+#contact .social-icons .leetcode-mark-orange { stroke: #ffa116; }
+#contact .social-icons .leetcode-mark-gray { stroke: #e7e7e7; }
+#contact .social-icons .leetcode-mark-line { stroke: #ffa116; stroke-width: 2.6; }
+#contact .social-icons .leetcode-social-icon:hover {
+    background: rgba(255, 161, 22, 0.18);
+    border-color: rgba(255, 161, 22, 0.8);
+    box-shadow: 0 6px 18px rgba(255, 161, 22, 0.24);
+}
+#contact .social-icons .leetcode-social-icon:hover .leetcode-mark {
+    transform: rotate(-5deg) scale(1.08);
+    filter: drop-shadow(0 0 5px rgba(255, 161, 22, 0.3));
+}
