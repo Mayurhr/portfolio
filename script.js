@@ -1,6 +1,6 @@
 // Config and State
 const HOUSE_COORDS = { lat: 14.239259779665424, lng: 75.63912844909106 };
-const resumeFileId = "1mQIj4WNOSE7aTStKP8wON80vGggYgZeY";
+const resumeFileId = "1g-2hlAvpT5C4-OYztJ81SIuF02wc7UWo";
 
 let allCertificates = [];
 let featuredCertificates = [];
